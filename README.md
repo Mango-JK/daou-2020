@@ -3,3 +3,6 @@
 test
 
 update test
+
+
+test git pull
