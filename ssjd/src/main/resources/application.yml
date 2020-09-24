@@ -2,13 +2,18 @@ server:
   port: 8080
 
 spring:
-  h2:
-    console:
-      enabled: true
-      path: /test_db
+  jpa:
+    show-sql: true
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+        format_sql: true
+        show_sql: true
+    hibernate:
+      ddl-auto: create
 
   datasource:
-    driver-class-name: org.h2.Driver
-    url: jdbc:h2:file:~/Develop/Github/SpringBlogExam/test_db;AUTO_SERVER=TRUE  #접속 URL
-    username: test  # 사용자 이름 (로그인 시 사용)
-    password: 1234  # 사용자 암호 (로그인 시 사용)
+    username: daou
+    password: daou2020!
+    url: jdbc:mariadb://daou-it-maria.cy9pjdfbrh5z.ap-northeast-2.rds.amazonaws.com:3306/daou
+    driver-class-name: org.mariadb.jdbc.Driver
