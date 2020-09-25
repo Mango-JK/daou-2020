@@ -5,6 +5,8 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+import java.time.LocalDateTime;
+
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -12,7 +14,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Getter
 @Entity
 @Table(name = "messages")
-public class Messages extends BaseTimeEntity {
+public class Messages {
 
     @Id @GeneratedValue(strategy = IDENTITY)
     @Column(name = "message_id")
@@ -30,4 +32,6 @@ public class Messages extends BaseTimeEntity {
     @Column(name = "content")
     private String content;
 
+    @Column(name = "created_date")
+    private LocalDateTime createdDate;
 }
