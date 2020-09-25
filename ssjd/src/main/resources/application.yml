@@ -1,0 +1,27 @@
+server:
+  port: 3000
+
+spring:
+  datasource:
+    username: intern3
+    password: 59dlsXjs##
+    url: jdbc:mariadb://123.2.134.46:3306/intern3
+    driver-class-name: org.mariadb.jdbc.Driver
+
+  jpa:
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      format_sql: true
+      ddl-auto: none
+
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+        type:
+          descriptor:
+            sql:
+              BasicBinder: TRACE
