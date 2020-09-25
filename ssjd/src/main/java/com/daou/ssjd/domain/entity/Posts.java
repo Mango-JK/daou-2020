@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
+import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -23,8 +24,9 @@ public class Posts extends BaseTimeEntity {
     @Column(name = "post_id")
     private Long postId;
 
-    @Column(name = "nickname")
-    private String nickname;
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "user_id")
+    private Users users;
 
     @Column(name = "language")
     private String language;
@@ -33,7 +35,7 @@ public class Posts extends BaseTimeEntity {
     @JoinColumn(name = "problem_id")
     private Problems problem;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "posts", cascade = ALL)
     private List<Messages> messages = new ArrayList<>();
 
     @Column(name = "title")
@@ -56,5 +58,4 @@ public class Posts extends BaseTimeEntity {
         this.messages = messages;
         this.updateModifiedDate(LocalDateTime.now());
     }
-
 }

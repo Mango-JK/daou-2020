@@ -20,11 +20,11 @@ public class Messages extends BaseTimeEntity {
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "user_id")
-    private Users user;
+    private Users users;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "post_id")
-    private Posts post;
+    private Posts posts;
 
     @Lob
     @Column(name = "content")
