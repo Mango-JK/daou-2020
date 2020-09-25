@@ -31,6 +31,7 @@ dependencies {
 
 	compile("org.mariadb.jdbc:mariadb-java-client")
 
+	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
 test {

@@ -1,5 +1,6 @@
 package com.daou.ssjd.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 

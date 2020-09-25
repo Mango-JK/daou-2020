@@ -1,5 +1,7 @@
 package com.daou.ssjd.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -26,12 +28,12 @@ public class Posts extends BaseTimeEntity {
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "user_id")
-    private Users users;
+    private Users user;
 
     @Column(name = "language")
     private String language;
 
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(fetch = LAZY, cascade = ALL)
     @JoinColumn(name = "problem_id")
     private Problems problem;
 
@@ -49,13 +51,26 @@ public class Posts extends BaseTimeEntity {
     @Lob
     private String code;
 
-    public void update(String language, Problems problem, String title, String content, String code, List<Messages> messages) {
-        this.language = language;
+    @Builder
+    public Posts(Users user, Problems problem, String language, String title,
+                 String content, String code) {
+        this.user = user;
         this.problem = problem;
+        this.language = language;
         this.title = title;
         this.content = content;
         this.code = code;
+    }
+
+    public void update(Users user, Problems problem, List<Messages> messages,
+                       String language, String title, String content, String code) {
+        this.user = user;
+        this.problem = problem;
         this.messages = messages;
+        this.language = language;
+        this.title = title;
+        this.content = content;
+        this.code = code;
         this.updateModifiedDate(LocalDateTime.now());
     }
 }
