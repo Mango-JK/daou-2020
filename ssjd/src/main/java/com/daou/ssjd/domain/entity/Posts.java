@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -26,18 +27,18 @@ public class Posts extends BaseTimeEntity {
     @Column(name = "post_id")
     private Long postId;
 
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(fetch = EAGER, cascade = ALL)
     @JoinColumn(name = "user_id")
     private Users user;
 
     @Column(name = "language")
     private String language;
 
-    @ManyToOne(fetch = LAZY, cascade = ALL)
+    @ManyToOne(fetch = EAGER, cascade = ALL)
     @JoinColumn(name = "problem_id")
     private Problems problem;
 
-    @OneToMany(mappedBy = "posts", cascade = ALL)
+    @OneToMany(mappedBy = "posts", fetch = EAGER)
     private List<Messages> messages = new ArrayList<>();
 
     @Column(name = "title")

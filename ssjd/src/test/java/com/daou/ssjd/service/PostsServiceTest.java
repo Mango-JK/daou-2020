@@ -212,7 +212,7 @@ class PostsServiceTest {
         // given
         PostsSaveRequestDto dto = PostsSaveRequestDto.builder()
                 .userId(1L)
-                .problemLink("https://www.naver.com")
+                .problemLink("https://www.naver.com2")
                 .problemType("삭제 테스트용")
                 .problemTitle("삭제 테스트")
                 .language("TEST")
@@ -231,8 +231,6 @@ class PostsServiceTest {
         Assertions.assertThat(problem).isNotNull();
         postsService.deletePost(savePost.getPostId());
         Assertions.assertThat(postsRepository.findByPostId(savePost.getPostId())).isNull();
-        Assertions.assertThat(problemsRepository.findById(savePost.getProblem().getProblemId()));
-
-
+        Assertions.assertThat(problemsRepository.findById(savePost.getProblem().getProblemId())).isNull();
     }
 }

@@ -1,6 +1,7 @@
 package com.daou.ssjd.controller;
 
 import com.daou.ssjd.domain.entity.Posts;
+import com.daou.ssjd.domain.entity.Users;
 import com.daou.ssjd.dto.PostsSaveRequestDto;
 import com.daou.ssjd.dto.PostsUpdateRequestDto;
 import com.daou.ssjd.service.PostsService;
@@ -52,11 +53,38 @@ public class PostsController {
      */
     @GetMapping("/posts")
     public ResponseEntity findAllPosts(@RequestParam("pageNum") int pageNum) {
-        PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modified_date").descending());
+        PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
         Page<Posts> result = postsService.findAllPosts(pageRequest);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
+    /**
+     * 5. 언어별 게시글 조회
+     */
+    @GetMapping("/posts/{language}")
+    public ResponseEntity findAllByLanguage(@PathVariable("language") String language, int pageNum) {
+        PageRequest pageRequest = PageRequest.of(pageNum,6, Sort.by("modifiedDate").descending());
+        Page<Posts> result = postsService.findAllPostsByLanguage(language, pageRequest);
+        return new ResponseEntity(result, HttpStatus.OK);
+    }
 
+    /**
+     * 6. 플랫폼별 게시글 조회
+     */
+    @GetMapping("/problems/{sourceType}/posts")
+    public ResponseEntity findAllByPlatform(@PathVariable("sourceType") String sourceType, int pageNum) {
+        PageRequest pageRequest = PageRequest.of(pageNum,6, Sort.by("modifiedDate").descending());
+        Page<Posts> result = postsService.findAllPostsByPlatform(sourceType, pageRequest);
+        return new ResponseEntity(result, HttpStatus.OK);
+    }
 
+    /**
+     * 7. 유저별 게시글 조회
+     */
+    @GetMapping("/users/{userId}/posts")
+    public ResponseEntity findAllByUser(@PathVariable("userId") Long userId, int pageNum){
+        PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
+        Page<Posts> result = postsService.findAllPostsByUser(userId, pageRequest);
+        return new ResponseEntity(result, HttpStatus.OK);
+    }
 }

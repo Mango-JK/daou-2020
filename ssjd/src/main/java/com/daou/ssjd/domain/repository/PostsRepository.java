@@ -14,8 +14,15 @@ public interface PostsRepository extends JpaRepository<Posts, Long> {
     Posts findByPostId(long postId);
 
     @Override
-    Page<Posts> findAll(Pageable pageable);
+    List<Posts> findAll();
 
     @Override
-    List<Posts> findAll();
+    Page<Posts> findAll(Pageable pageable);
+
+    Page<Posts> findAllByLanguage(String language, Pageable pageable);
+
+    Page<Posts> findAllByUserUserId(Long userId, Pageable pageable);
+
+    Page<Posts> findAllByProblem_ProblemType(String sourceType, Pageable pageable);
+
 }
