@@ -28,21 +28,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f589253-68bf-4d3c-9ca7-2dda09ce1299" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/daou-2020.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/UsersController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/dto/UsersSaveRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ssjd/src/test/java/com/daou/ssjd/service/UsersServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/PostsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/PostsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/repository/UsersRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/repository/UsersRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/GlobalRestExceptionHandler.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/dto/UsersResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/interceptor/JwtInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ssjd/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/SsjdApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/SsjdApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/entity/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/dto/UsersSaveRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/dto/UsersRequestDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/PostsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/PostsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/UsersService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ssjd/src/test/java/com/daou/ssjd/service/UsersServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/test/java/com/daou/ssjd/service/UsersServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +60,12 @@
   <component name="ExternalProjectsManager">
     <system id="GRADLE">
       <state>
+        <task path="$PROJECT_DIR$/ssjd">
+          <activation />
+        </task>
+        <task path="$PROJECT_DIR$/ssjd/build.gradle">
+          <activation />
+        </task>
         <projects_view>
           <tree_state>
             <expand>
@@ -95,13 +101,14 @@
     <property name="RequestMappingsPanelWidth0" value="75" />
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
   </component>
   <component name="RunManager" selected="Spring Boot.SsjdApplication (1)">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
@@ -114,23 +121,6 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
-    </configuration>
-    <configuration name="C:/Users/User/Desktop/daou-2020/ssjd/build.gradle" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/ssjd/build.gradle" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list />
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>true</GradleScriptDebugEnabled>
-      <method v="2" />
     </configuration>
     <configuration name="PostsServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
@@ -170,6 +160,44 @@
       <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
       <method v="2" />
     </configuration>
+    <configuration name="UsersServiceTest.회원가입" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/ssjd" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.daou.ssjd.service.UsersServiceTest.회원가입&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="UsersServiceTest.중복_회원_예외" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/ssjd" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="--tests &quot;com.daou.ssjd.service.UsersServiceTest.중복_회원_예외&quot;" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
+      <method v="2" />
+    </configuration>
     <configuration name="SsjdApplication (1)" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
       <module name="ssjd.main" />
       <extension name="coverage">
@@ -193,9 +221,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Spring Boot.SsjdApplication (1)" />
+        <item itemvalue="Gradle.UsersServiceTest.중복_회원_예외" />
+        <item itemvalue="Gradle.UsersServiceTest.회원가입" />
         <item itemvalue="Gradle.UsersServiceTest" />
         <item itemvalue="Gradle.PostsServiceTest" />
-        <item itemvalue="Gradle.C:/Users/User/Desktop/daou-2020/ssjd/build.gradle" />
       </list>
     </recent_temporary>
   </component>
@@ -234,6 +263,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="361" y="53" key="#Plugins" timestamp="1601260327641">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="53" key="#Plugins/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601260327641" />
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601015263651">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -242,46 +275,66 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="505" y="202" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601019644914" />
+    <state x="282" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601267616870">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="282" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1536.824@0.0.1536.824" timestamp="1601267616870" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1601271119339">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601271119339" />
     <state x="577" y="167" key="FileChooserDialogImpl" timestamp="1601021313801">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="577" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601021313801" />
-    <state width="1493" height="275" key="GridCell.Tab.0.bottom" timestamp="1601254149830">
+    <state width="1493" height="179" key="GridCell.Tab.0.bottom" timestamp="1601281752222">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="275" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601254149830" />
-    <state width="1493" height="275" key="GridCell.Tab.0.center" timestamp="1601254149830">
+    <state width="1493" height="179" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601281752222" />
+    <state width="1493" height="226" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1601267791834" />
+    <state width="1493" height="179" key="GridCell.Tab.0.center" timestamp="1601281752222">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="275" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601254149830" />
-    <state width="1493" height="275" key="GridCell.Tab.0.left" timestamp="1601254149830">
+    <state width="1493" height="179" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601281752222" />
+    <state width="1493" height="226" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1601267791834" />
+    <state width="1493" height="179" key="GridCell.Tab.0.left" timestamp="1601281752222">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="275" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601254149830" />
-    <state width="1493" height="275" key="GridCell.Tab.0.right" timestamp="1601254149830">
+    <state width="1493" height="179" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601281752222" />
+    <state width="1493" height="226" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1601267791834" />
+    <state width="1493" height="179" key="GridCell.Tab.0.right" timestamp="1601281752222">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="275" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601254149830" />
-    <state width="1493" height="275" key="GridCell.Tab.1.bottom" timestamp="1601254149831">
+    <state width="1493" height="179" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601281752222" />
+    <state width="1493" height="226" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1601267791834" />
+    <state width="1493" height="179" key="GridCell.Tab.1.bottom" timestamp="1601281752222">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="275" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601254149831" />
-    <state width="1493" height="275" key="GridCell.Tab.1.center" timestamp="1601254149830">
+    <state width="1493" height="179" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601281752222" />
+    <state width="1493" height="185" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1601267714247" />
+    <state width="1493" height="179" key="GridCell.Tab.1.center" timestamp="1601281752222">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="275" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601254149830" />
-    <state width="1493" height="275" key="GridCell.Tab.1.left" timestamp="1601254149830">
+    <state width="1493" height="179" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601281752222" />
+    <state width="1493" height="185" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1601267714247" />
+    <state width="1493" height="179" key="GridCell.Tab.1.left" timestamp="1601281752222">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="275" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601254149830" />
-    <state width="1493" height="275" key="GridCell.Tab.1.right" timestamp="1601254149831">
+    <state width="1493" height="179" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601281752222" />
+    <state width="1493" height="185" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1601267714247" />
+    <state width="1493" height="179" key="GridCell.Tab.1.right" timestamp="1601281752222">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="275" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601254149831" />
-    <state x="277" y="0" key="SettingsEditor" timestamp="1601015835152">
+    <state width="1493" height="179" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601281752222" />
+    <state width="1493" height="185" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1601267714247" />
+    <state x="277" y="0" key="SettingsEditor" timestamp="1601260348544">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="0" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601015835152" />
+    <state x="277" y="0" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601260348544" />
+    <state x="475" y="10" width="585" height="804" key="find.popup" timestamp="1601260301490">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="475" y="10" width="585" height="804" key="find.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601260301490" />
     <state x="180" y="22" key="new project wizard" timestamp="1601019787070">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -290,5 +343,9 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601015353632" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1601260312641">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601260312641" />
   </component>
 </project>
