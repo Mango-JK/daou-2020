@@ -10,8 +10,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import javax.transaction.Transactional;
+import org.springframework.transaction.annotation.Transactional;
 
 @RequiredArgsConstructor
 @Service
@@ -70,9 +69,50 @@ public class PostsService {
     /**
      * 4. 전체 게시글 조회
      */
+    @Transactional(readOnly = true)
     public Page<Posts> findAllPosts(Pageable pageable) {
         return postsRepository.findAll(pageable);
     }
 
+    /**
+     * 5. 언어별 풀이 조회
+     */
+    @Transactional(readOnly = true)
+    public Page<Posts> findAllPostsByLanguage(String language, Pageable pageable) {
+        return postsRepository.findAllByLanguage(language, pageable);
+    }
 
+    /**
+     * 6. 플랫폼별 풀이 조회
+     */
+    @Transactional(readOnly = true)
+    public Page<Posts> findAllPostsByPlatform(String sourceType, Pageable pageable) {
+        return postsRepository.findAllByProblem_ProblemType(sourceType, pageable);
+    }
+
+    /**
+     * 7. 언어 + 플랫폼별 풀이 조회
+     */
+    @Transactional(readOnly = true)
+    public Page<Posts> findAllPostsByLanguageAndPlatform(String language, String sourceType, Pageable pageable) {
+        return postsRepository.findAllByLanguageAndProblem_ProblemType(language, sourceType, pageable);
+    }
+
+    /**
+     * 8. 유저별 풀이 조회
+     */
+    @Transactional(readOnly = true)
+    public Page<Posts> findAllPostsByUser(Long userId, Pageable pageable) {
+        return postsRepository.findAllByUserUserId(userId, pageable);
+    }
+
+//    /**
+//     * 9. 게시글 검색 (타이틀) + 페이징
+//     */
+//    @Transactional(readOnly = true)
+//    public Page<Posts> searchAllPostsByKeyword(String keyword, Pageable pageable) {
+//        Specification<Posts> spec = where(PostsSpecs.titleLike(keyword));
+//        Page<Posts> result = postsRepository.searchAllPostsByKeyword(spec, pageable);
+//        return result;
+//    }
 }

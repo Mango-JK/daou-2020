@@ -52,11 +52,58 @@ public class PostsController {
      */
     @GetMapping("/posts")
     public ResponseEntity findAllPosts(@RequestParam("pageNum") int pageNum) {
-        PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modified_date").descending());
+        PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
         Page<Posts> result = postsService.findAllPosts(pageRequest);
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
+    /**
+     * 5. 언어별 게시글 조회
+     */
+    @GetMapping("/posts/{language}")
+    public ResponseEntity findAllByLanguage(@PathVariable("language") String language, int pageNum) {
+        PageRequest pageRequest = PageRequest.of(pageNum,6, Sort.by("modifiedDate").descending());
+        Page<Posts> result = postsService.findAllPostsByLanguage(language, pageRequest);
+        return new ResponseEntity(result, HttpStatus.OK);
+    }
 
+    /**
+     * 6. 플랫폼별 게시글 조회
+     */
+    @GetMapping("/posts/problems/{sourceType}")
+    public ResponseEntity findAllByPlatform(@PathVariable("sourceType") String sourceType, int pageNum) {
+        PageRequest pageRequest = PageRequest.of(pageNum,6, Sort.by("modifiedDate").descending());
+        Page<Posts> result = postsService.findAllPostsByPlatform(sourceType, pageRequest);
+        return new ResponseEntity(result, HttpStatus.OK);
+    }
 
+    /**
+     * 7. 언어 + 플랫폼별 게시글 조회
+     */
+    @GetMapping("/posts/platform/language")
+    public ResponseEntity findAllByPlatformAndLanguage(@RequestParam("language") String language, @RequestParam("sourceType") String sourceType, int pageNum) {
+        PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
+        Page<Posts> result = postsService.findAllPostsByLanguageAndPlatform(language, sourceType, pageRequest);
+        return new ResponseEntity(result, HttpStatus.OK);
+    }
+
+    /**
+     * 8. 유저별 게시글 조회
+     */
+    @GetMapping("/posts/users/{userId}")
+    public ResponseEntity findAllByUser(@PathVariable("userId") Long userId, int pageNum){
+        PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
+        Page<Posts> result = postsService.findAllPostsByUser(userId, pageRequest);
+        return new ResponseEntity(result, HttpStatus.OK);
+    }
+
+    /**
+     * 9. 게시글 통합검색
+     */
+//    @GetMapping("/posts/search/{keyword}")
+//    public ResponseEntity searchPosts(@PathVariable("keyword") String keyword, int pageNum) {
+//        PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
+//        Page<Posts> result = postsService.searchAllPostsByKeyword(keyword, pageRequest);
+//        return new ResponseEntity(result, HttpStatus.OK);
+//    }
 }
