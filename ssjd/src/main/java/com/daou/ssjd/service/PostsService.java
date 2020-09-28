@@ -63,9 +63,7 @@ public class PostsService {
     @Transactional
     public void deletePost(long postId) {
         Posts deleteTargetPost = postsRepository.findByPostId(postId);
-        Problems deleteTargetProblem = deleteTargetPost.getProblem();
         postsRepository.delete(deleteTargetPost);
-        problemsService.deleteProblem(deleteTargetProblem.getProblemId());
     }
 
     /**
@@ -92,13 +90,29 @@ public class PostsService {
         return postsRepository.findAllByProblem_ProblemType(sourceType, pageable);
     }
 
+    /**
+     * 7. 언어 + 플랫폼별 풀이 조회
+     */
+    @Transactional(readOnly = true)
+    public Page<Posts> findAllPostsByLanguageAndPlatform(String language, String sourceType, Pageable pageable) {
+        return postsRepository.findAllByLanguageAndProblem_ProblemType(language, sourceType, pageable);
+    }
 
     /**
-     * 7. 유저별 풀이 조회
+     * 8. 유저별 풀이 조회
      */
     @Transactional(readOnly = true)
     public Page<Posts> findAllPostsByUser(Long userId, Pageable pageable) {
         return postsRepository.findAllByUserUserId(userId, pageable);
     }
 
+//    /**
+//     * 9. 게시글 검색 (타이틀) + 페이징
+//     */
+//    @Transactional(readOnly = true)
+//    public Page<Posts> searchAllPostsByKeyword(String keyword, Pageable pageable) {
+//        Specification<Posts> spec = where(PostsSpecs.titleLike(keyword));
+//        Page<Posts> result = postsRepository.searchAllPostsByKeyword(spec, pageable);
+//        return result;
+//    }
 }

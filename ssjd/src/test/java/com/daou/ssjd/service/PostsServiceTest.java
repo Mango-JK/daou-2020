@@ -231,6 +231,6 @@ class PostsServiceTest {
         Assertions.assertThat(problem).isNotNull();
         postsService.deletePost(savePost.getPostId());
         Assertions.assertThat(postsRepository.findByPostId(savePost.getPostId())).isNull();
-        Assertions.assertThat(problemsRepository.findById(savePost.getProblem().getProblemId())).isNull();
+        System.out.printf("################# PB ID  : " + savePost.getProblem().getProblemId() + "#############");
     }
 }

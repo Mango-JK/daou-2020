@@ -1,7 +1,6 @@
 package com.daou.ssjd.controller;
 
 import com.daou.ssjd.domain.entity.Posts;
-import com.daou.ssjd.domain.entity.Users;
 import com.daou.ssjd.dto.PostsSaveRequestDto;
 import com.daou.ssjd.dto.PostsUpdateRequestDto;
 import com.daou.ssjd.service.PostsService;
@@ -71,7 +70,7 @@ public class PostsController {
     /**
      * 6. 플랫폼별 게시글 조회
      */
-    @GetMapping("/problems/{sourceType}/posts")
+    @GetMapping("/posts/problems/{sourceType}")
     public ResponseEntity findAllByPlatform(@PathVariable("sourceType") String sourceType, int pageNum) {
         PageRequest pageRequest = PageRequest.of(pageNum,6, Sort.by("modifiedDate").descending());
         Page<Posts> result = postsService.findAllPostsByPlatform(sourceType, pageRequest);
@@ -79,12 +78,32 @@ public class PostsController {
     }
 
     /**
-     * 7. 유저별 게시글 조회
+     * 7. 언어 + 플랫폼별 게시글 조회
      */
-    @GetMapping("/users/{userId}/posts")
+    @GetMapping("/posts/platform/language")
+    public ResponseEntity findAllByPlatformAndLanguage(@RequestParam("language") String language, @RequestParam("sourceType") String sourceType, int pageNum) {
+        PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
+        Page<Posts> result = postsService.findAllPostsByLanguageAndPlatform(language, sourceType, pageRequest);
+        return new ResponseEntity(result, HttpStatus.OK);
+    }
+
+    /**
+     * 8. 유저별 게시글 조회
+     */
+    @GetMapping("/posts/users/{userId}")
     public ResponseEntity findAllByUser(@PathVariable("userId") Long userId, int pageNum){
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
         Page<Posts> result = postsService.findAllPostsByUser(userId, pageRequest);
         return new ResponseEntity(result, HttpStatus.OK);
     }
+
+    /**
+     * 9. 게시글 통합검색
+     */
+//    @GetMapping("/posts/search/{keyword}")
+//    public ResponseEntity searchPosts(@PathVariable("keyword") String keyword, int pageNum) {
+//        PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
+//        Page<Posts> result = postsService.searchAllPostsByKeyword(keyword, pageRequest);
+//        return new ResponseEntity(result, HttpStatus.OK);
+//    }
 }

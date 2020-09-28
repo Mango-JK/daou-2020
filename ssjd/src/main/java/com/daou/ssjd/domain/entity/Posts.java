@@ -1,6 +1,5 @@
 package com.daou.ssjd.domain.entity;
 
-import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,7 +12,6 @@ import java.util.List;
 
 import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.FetchType.EAGER;
-import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @NoArgsConstructor
@@ -27,7 +25,7 @@ public class Posts extends BaseTimeEntity {
     @Column(name = "post_id")
     private Long postId;
 
-    @ManyToOne(fetch = EAGER, cascade = ALL)
+    @ManyToOne(fetch = EAGER)
     @JoinColumn(name = "user_id")
     private Users user;
 
