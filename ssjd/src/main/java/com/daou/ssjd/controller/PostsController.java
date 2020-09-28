@@ -7,6 +7,7 @@ import com.daou.ssjd.service.PostsService;
 import io.swagger.annotations.Api;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -22,6 +23,9 @@ import org.springframework.web.bind.annotation.*;
 public class PostsController {
 
     private final PostsService postsService;
+
+//    @Autowired
+//    public PostsController(PostsService postsService) { this.postsService = postsService; }
 
     /**
      * 1. 게시글 등록
