@@ -20,6 +20,12 @@ public class PostsService {
     private final UsersService usersService;
     private final ProblemsService problemsService;
 
+//    public PostsService(PostsRepository postsRepository, UsersService usersService, ProblemsService problemsService) {
+//        this.postsRepository = postsRepository;
+//        this.usersService = usersService;
+//        this.problemsService = problemsService;
+//    }
+
     public Posts findByPostId(long postId) {
         return postsRepository.findByPostId(postId);
     }
