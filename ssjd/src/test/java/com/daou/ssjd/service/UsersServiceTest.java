@@ -1,8 +1,7 @@
 package com.daou.ssjd.service;
 
 import com.daou.ssjd.domain.entity.Users;
-import com.daou.ssjd.domain.repository.UsersRepository;
-import com.daou.ssjd.dto.UsersSaveRequestDto;
+import com.daou.ssjd.dto.UsersRequestDto;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,24 +24,24 @@ class UsersServiceTest {
     @Test
     void 회원가입() {
         // given
-        UsersSaveRequestDto usersSaveRequestDto = UsersSaveRequestDto.builder()
+        UsersRequestDto usersRequestDto = UsersRequestDto.builder()
                 .nickname("ssjd")
                 .password("example")
                 .build();
 
         // when
-        Users savedUser = usersService.saveUser(usersSaveRequestDto);
+        Users savedUser = usersService.saveUser(usersRequestDto);
 
         // then
         Users findUser = usersService.findByNickname(savedUser.getNickname()).get();
-        assertThat(usersSaveRequestDto.getNickname()).isEqualTo(findUser.getNickname());
+        assertThat(usersRequestDto.getNickname()).isEqualTo(findUser.getNickname());
     }
 
     @Test
     void 중복_회원_예외() {
         // given
-        UsersSaveRequestDto user1 = new UsersSaveRequestDto("dupTest", "");
-        UsersSaveRequestDto user2 = new UsersSaveRequestDto("dupTest", "");
+        UsersRequestDto user1 = new UsersRequestDto("dupTest", "");
+        UsersRequestDto user2 = new UsersRequestDto("dupTest", "");
 
         // when
         usersService.saveUser(user1);

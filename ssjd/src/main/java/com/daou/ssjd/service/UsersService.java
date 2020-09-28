@@ -1,9 +1,8 @@
 package com.daou.ssjd.service;
 
-import com.daou.ssjd.domain.entity.Problems;
 import com.daou.ssjd.domain.entity.Users;
 import com.daou.ssjd.domain.repository.UsersRepository;
-import com.daou.ssjd.dto.UsersSaveRequestDto;
+import com.daou.ssjd.dto.UsersRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -17,27 +16,42 @@ public class UsersService {
 
     private final UsersRepository usersRepository;
 
-//    public UsersService(UsersRepository usersRepository) { this.usersRepository = usersRepository; }
-
     /**
-    * 1. 유저 회원 가입
+     * 1. 유저 회원 가입
      */
-    public Users saveUser(UsersSaveRequestDto usersSaveRequestDto) {
-        validateDuplicateUser(usersSaveRequestDto);
+    public Users saveUser(UsersRequestDto usersRequestDto) {
+        validateDuplicateUser(usersRequestDto);
         return usersRepository.save(Users.builder()
-                .nickname(usersSaveRequestDto.getNickname())
-                .password(usersSaveRequestDto.getPassword())
+                .nickname(usersRequestDto.getNickname())
+                .password(usersRequestDto.getPassword())
                 .build()
         );
     }
 
-    private void validateDuplicateUser(UsersSaveRequestDto usersSaveRequestDto) {
-        usersRepository.findByNickname(usersSaveRequestDto.getNickname())
+    /**
+     * 2. 중복 검사
+     */
+    private void validateDuplicateUser(UsersRequestDto usersRequestDto) {
+        usersRepository.findByNickname(usersRequestDto.getNickname())
                 .ifPresent(m -> {
                     throw new IllegalStateException("이미 존재하는 회원입니다.");
                 });
     }
 
+    /**
+     * 3. 로그인
+     */
+    public Users userLogIn(UsersRequestDto usersRequestDto) {
+        Users findUser = usersRepository.findByNickname(usersRequestDto.getNickname()).get(); // 없으면 예외 발생
+        if (usersRequestDto.getPassword() != findUser.getPassword()) {
+            throw new IllegalStateException("비밀번호가 일치하지 않습니다.");
+        } else {
+            // 토큰 발행
+            System.out.println("Hi");
+            return findUser;
+        }
+    }
+    
     public Optional<Users> findByNickname(String nickname) {
         return usersRepository.findByNickname(nickname);
     }
