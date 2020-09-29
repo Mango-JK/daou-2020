@@ -1,9 +1,26 @@
-# daou-2020
-## #01 API 명세서
+<center><img src="./images/daou_logo.png"><center>
 
-**회원 - `영준`/ 포스팅 - `정건` / 채팅 - `민영`**
+# <center><tab>알려다우</center>
 
-### 1. User
+<br/>
+
+<hr/>
+
+<center><img src="./images/main.png"><center>
+
+
+
+## <center>기술스택</center>
+
+
+
+<center><img src="./images/skills.png"><center>
+
+<br/>
+
+## <center>API 명세서</center>
+
+### User
 
 - 📘**POST** : /users(nickname, password) - 회원 가입
 
@@ -21,7 +38,7 @@
 
   <hr/>
 
-### 2. Post
+### Post
 
 - 📘**POST** : /posts(user_id, problemLink, problemType, problemTitle,
 
@@ -52,8 +69,51 @@
 
 <hr/>
 
-### 3. Chat
+### Chat
 
 - 📗**GET** : /chat/{postId} - 채팅방 입장
 
 - 📘**POST** : /chat/{postId} (userId, message) - 메시지 보내기
+
+<br/>
+
+<hr/>
+
+## ERD
+
+
+
+<center><img src="./images/erd.png"><center>
+
+<br/>
+
+<hr/>
+
+## 시스템 아키텍처
+
+<center><img src="./images/architecture.png"><center>
+
+<br/>
+
+<hr/>
+
+## 팀 구성
+
+| 이름   | 업무  |
+| ------ | ----- |
+| 이정건 | 90811 |
+| 배민영 | 90813 |
+| 황영준 | 90817 |
+
+<br/>
+
+<hr/>
+
+## 업무 분담
+
+| 이름   | 역할        |
+| ------ | ----------- |
+| 이정건 | 게시글 기능 |
+| 배민영 | 채팅 기능   |
+| 황영준 | 회원 기능   |
+
