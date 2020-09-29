@@ -202,7 +202,7 @@ class PostsServiceTest {
         postsService.updatePost(updatingPostId, updateDto);
 
         // then
-        Posts afterPost = postsService.findByPostId(updatingPostId);
+        Posts afterPost = postsService.findByPostId(updatingPostId).get();
         Assertions.assertThat(afterPost.getPostId()).isEqualTo(savePost.getPostId());
         Assertions.assertThat(afterPost.getTitle()).isEqualTo("TITLE !");
     }
