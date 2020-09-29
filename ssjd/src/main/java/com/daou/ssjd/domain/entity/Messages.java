@@ -1,11 +1,10 @@
 package com.daou.ssjd.domain.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-
 import java.time.LocalDateTime;
 
 import static javax.persistence.FetchType.LAZY;
@@ -35,4 +34,11 @@ public class Messages {
 
     @Column(name = "created_date")
     private LocalDateTime createdDate;
+
+    @Builder
+    public Messages(Users user, Posts posts, String content) {
+        this.users = user;
+        this.posts = posts;
+        this.content = content;
+    }
 }
