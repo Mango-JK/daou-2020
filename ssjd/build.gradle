@@ -1,14 +1,26 @@
+buildscript {
+	dependencies {
+		classpath("gradle.plugin.com.ewerk.gradle.plugins:querydsl-plugin:1.0.10")
+	}
+}
+
 plugins {
-	id 'org.springframework.boot' version '2.3.4.RELEASE'
-	id 'io.spring.dependency-management' version '1.0.10.RELEASE'
+	id 'org.springframework.boot' version '2.2.1.RELEASE'
+	id 'io.spring.dependency-management' version '1.0.8.RELEASE'
 	id 'java'
 }
+
+apply plugin: "com.ewerk.gradle.plugins.querydsl"
 
 group = 'com.daou'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
 
 configurations {
+	developmentOnly
+	runtimeClasspath {
+		extendsFrom developmentOnly
+	}
 	compileOnly {
 		extendsFrom annotationProcessor
 	}
@@ -31,7 +43,32 @@ dependencies {
 	implementation 'io.jsonwebtoken:jjwt:0.9.1'
 	compile("org.mariadb.jdbc:mariadb-java-client")
 
+	compile 'com.querydsl:querydsl-jpa'
+	compile 'com.querydsl:querydsl-apt'
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
+}
+
+def querydslDir = 'src/main/generated'
+querydsl {
+	library = "com.querydsl:querydsl-apt"
+	jpa = true
+	querydslSourcesDir = querydslDir
+}
+
+sourceSets {
+	main {
+		java {
+			srcDirs = ['src/main/java', querydslDir]
+		}
+	}
+}
+
+compileQuerydsl{
+	options.annotationProcessorPath = configurations.querydsl
+}
+configurations {
+	querydsl.extendsFrom compileClasspath
 }
 
 test {

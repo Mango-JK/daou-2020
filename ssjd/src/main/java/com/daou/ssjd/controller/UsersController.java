@@ -12,15 +12,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletResponse;
+import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.Map;
 
 @Slf4j
 @Api(tags = "Users")
 @RequiredArgsConstructor
-@RequestMapping("/api/")
+@RequestMapping("/api")
 @RestController
-@CrossOrigin(origins = "*")
 public class UsersController {
     private final UsersService usersService;
     private final JwtService jwtService;
@@ -35,7 +35,7 @@ public class UsersController {
      * 2. 로그인
      */
     @PostMapping("/users/login")
-    public ResponseEntity<Map<String, Object>> userLogIn(@RequestBody UsersRequestDto usersRequestDto,
+    public ResponseEntity<Map<String, Object>> userLogIn(@Valid @RequestBody UsersRequestDto usersRequestDto,
                                                       HttpServletResponse res) {
         Map<String, Object> resultMap = new HashMap<>();
         HttpStatus status = null;
@@ -49,6 +49,7 @@ public class UsersController {
             // 토큰을 req 의 헤더에 담아줌
             res.setHeader("jwt-auth-token", token);
 
+            resultMap.put("auth_token", token);
             resultMap.put("status", true);
             resultMap.put("data", loginUser);
             status = HttpStatus.ACCEPTED;

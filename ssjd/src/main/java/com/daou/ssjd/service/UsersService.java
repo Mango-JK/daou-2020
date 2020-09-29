@@ -42,20 +42,24 @@ public class UsersService {
      * 3. 로그인
      */
     public Users userLogIn(UsersRequestDto usersRequestDto) {
-        Users findUser = usersRepository.findByNickname(usersRequestDto.getNickname()).get(); // 없으면 예외 발생
-        if (usersRequestDto.getPassword() != findUser.getPassword()) {
+        Users findUser = usersRepository.findByNickname(usersRequestDto.getNickname()).get();
+        if (!(usersRequestDto.getPassword().equals(findUser.getPassword()))) {
             throw new IllegalStateException("비밀번호가 일치하지 않습니다.");
         } else {
-            // 토큰 발행
-            System.out.println("Hi");
             return findUser;
         }
     }
-    
+
+    /**
+     * 4. 닉네임으로 유저 찾기
+     */
     public Optional<Users> findByNickname(String nickname) {
         return usersRepository.findByNickname(nickname);
     }
 
+    /**
+     * 5. id로 유저 찾기
+     */
     public Users findById(long userId){
         Users user = usersRepository.findByUserId(userId);
         return usersRepository.save(user);

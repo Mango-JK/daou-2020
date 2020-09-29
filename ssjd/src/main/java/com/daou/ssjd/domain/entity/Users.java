@@ -13,7 +13,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Getter
 @Entity
 @Table(name = "users")
-public class Users extends BaseTimeEntity {
+public class Users{
 
     @Id @GeneratedValue(strategy = IDENTITY)
     @Column(name = "user_id")
