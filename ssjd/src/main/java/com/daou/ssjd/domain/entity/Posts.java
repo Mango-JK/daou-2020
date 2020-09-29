@@ -1,5 +1,6 @@
 package com.daou.ssjd.domain.entity;
 
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -9,7 +10,8 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import static javax.persistence.FetchType.LAZY;
+import static javax.persistence.CascadeType.ALL;
+import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.GenerationType.IDENTITY;
 
 @NoArgsConstructor
@@ -23,17 +25,18 @@ public class Posts extends BaseTimeEntity {
     @Column(name = "post_id")
     private Long postId;
 
-    @Column(name = "nickname")
-    private String nickname;
+    @ManyToOne(fetch = EAGER)
+    @JoinColumn(name = "user_id")
+    private Users user;
 
     @Column(name = "language")
     private String language;
 
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(fetch = EAGER, cascade = ALL)
     @JoinColumn(name = "problem_id")
     private Problems problem;
 
-    @OneToMany(mappedBy = "post")
+    @OneToMany(mappedBy = "posts", fetch = EAGER)
     private List<Messages> messages = new ArrayList<>();
 
     @Column(name = "title")
@@ -47,14 +50,26 @@ public class Posts extends BaseTimeEntity {
     @Lob
     private String code;
 
-    public void update(String language, Problems problem, String title, String content, String code, List<Messages> messages) {
-        this.language = language;
+    @Builder
+    public Posts(Users user, Problems problem, String language, String title,
+                 String content, String code) {
+        this.user = user;
         this.problem = problem;
+        this.language = language;
         this.title = title;
         this.content = content;
         this.code = code;
-        this.messages = messages;
-        this.updateModifiedDate(LocalDateTime.now());
     }
 
+    public void update(Users user, Problems problem, List<Messages> messages,
+                       String language, String title, String content, String code) {
+        this.user = user;
+        this.problem = problem;
+        this.messages = messages;
+        this.language = language;
+        this.title = title;
+        this.content = content;
+        this.code = code;
+        this.updateModifiedDate(LocalDateTime.now());
+    }
 }
