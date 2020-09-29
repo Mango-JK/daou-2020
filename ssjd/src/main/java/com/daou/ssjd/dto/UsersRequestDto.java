@@ -6,14 +6,14 @@ import lombok.*;
 @Getter
 @Setter
 @NoArgsConstructor
-public class UsersSaveRequestDto {
+public class UsersRequestDto {
 
     @NotNull
     private String nickname;
     private String password;
 
     @Builder
-    public UsersSaveRequestDto(String nickname, String password) {
+    public UsersRequestDto(String nickname, String password) {
         this.nickname = nickname;
         this.password = password;
     }
