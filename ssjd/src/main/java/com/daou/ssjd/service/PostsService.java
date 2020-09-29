@@ -12,6 +12,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Optional;
+
 @RequiredArgsConstructor
 @Service
 public class PostsService {
@@ -19,10 +21,6 @@ public class PostsService {
     private final PostsRepository postsRepository;
     private final UsersService usersService;
     private final ProblemsService problemsService;
-
-    public Posts findByPostId(long postId) {
-        return postsRepository.findByPostId(postId);
-    }
 
     /**
      * 1. 게시글 생성
@@ -49,7 +47,7 @@ public class PostsService {
      */
     @Transactional
     public void updatePost(long postId, PostsUpdateRequestDto requestDto) {
-        Posts post = postsRepository.findByPostId(postId);
+        Posts post = postsRepository.findByPostId(postId).get();
         long deletedProblem = post.getProblem().getProblemId();
         Problems problem = new Problems(requestDto.getProblemLink(), requestDto.getProblemType(), requestDto.getProblemTitle());
         post.update(post.getUser(), problem, post.getMessages(), requestDto.getLanguage(), requestDto.getTitle(),
@@ -62,12 +60,19 @@ public class PostsService {
      */
     @Transactional
     public void deletePost(long postId) {
-        Posts deleteTargetPost = postsRepository.findByPostId(postId);
+        Posts deleteTargetPost = postsRepository.findByPostId(postId).get();
         postsRepository.delete(deleteTargetPost);
     }
 
     /**
-     * 4. 전체 게시글 조회
+     * 4. 게시글 상세 조회
+     */
+    public Optional<Posts> findByPostId(long postId) {
+        return postsRepository.findByPostId(postId);
+    }
+
+    /**
+     * 5. 전체 게시글 조회
      */
     @Transactional(readOnly = true)
     public Page<Posts> findAllPosts(Pageable pageable) {
@@ -75,7 +80,7 @@ public class PostsService {
     }
 
     /**
-     * 5. 언어별 풀이 조회
+     * 6. 언어별 풀이 조회
      */
     @Transactional(readOnly = true)
     public Page<Posts> findAllPostsByLanguage(String language, Pageable pageable) {
@@ -83,7 +88,7 @@ public class PostsService {
     }
 
     /**
-     * 6. 플랫폼별 풀이 조회
+     * 7. 플랫폼별 풀이 조회
      */
     @Transactional(readOnly = true)
     public Page<Posts> findAllPostsByPlatform(String sourceType, Pageable pageable) {
@@ -91,7 +96,7 @@ public class PostsService {
     }
 
     /**
-     * 7. 언어 + 플랫폼별 풀이 조회
+     * 8. 언어 + 플랫폼별 풀이 조회
      */
     @Transactional(readOnly = true)
     public Page<Posts> findAllPostsByLanguageAndPlatform(String language, String sourceType, Pageable pageable) {
@@ -99,7 +104,7 @@ public class PostsService {
     }
 
     /**
-     * 8. 유저별 풀이 조회
+     * 9. 유저별 풀이 조회
      */
     @Transactional(readOnly = true)
     public Page<Posts> findAllPostsByUser(Long userId, Pageable pageable) {
@@ -107,7 +112,7 @@ public class PostsService {
     }
 
 //    /**
-//     * 9. 게시글 검색 (타이틀) + 페이징
+//     * 10. 게시글 검색 (타이틀) + 페이징
 //     */
 //    @Transactional(readOnly = true)
 //    public Page<Posts> searchAllPostsByKeyword(String keyword, Pageable pageable) {
