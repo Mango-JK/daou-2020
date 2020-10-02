@@ -10,6 +10,8 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.transaction.Transactional;
 
+import java.util.NoSuchElementException;
+
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -51,4 +53,44 @@ class UsersServiceTest {
         assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
     }
 
+    @Test
+    void 로그인() {
+        // given
+        UsersRequestDto givenUser = new UsersRequestDto("loginTest", "testPassword");
+        UsersRequestDto loginUser = new UsersRequestDto("loginTest", "testPassword");
+
+        // when
+        usersService.saveUser(givenUser);
+        Users findUser = usersService.userLogIn(loginUser);
+
+        // then
+        assertThat(givenUser.getNickname()).isEqualTo(findUser.getNickname());
+        assertThat(givenUser.getPassword()).isEqualTo(findUser.getPassword());
+    }
+
+    @Test
+    void 비밀번호_불일치_예외() {
+        // given
+        UsersRequestDto givenUser = new UsersRequestDto("givenUser", "givenPassword");
+        UsersRequestDto testUser = new UsersRequestDto("givenUser", "notEqualPassword");
+
+        // when
+        usersService.saveUser(givenUser);
+        IllegalStateException e = assertThrows(IllegalStateException.class, () -> usersService.userLogIn(testUser));
+
+        // then
+        assertThat(e.getMessage()).isEqualTo("비밀번호가 일치하지 않습니다.");
+    }
+
+    @Test
+    void 회원_없음_예외() {
+        // given
+        UsersRequestDto testUser = new UsersRequestDto("testUser", "testPassword");
+
+        // when
+        NoSuchElementException e = assertThrows(NoSuchElementException.class, () -> usersService.userLogIn(testUser));
+
+        // then
+        assertThat(e.getMessage()).isEqualTo("No value present");
+    }
 }
