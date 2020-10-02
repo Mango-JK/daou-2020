@@ -94,7 +94,7 @@ public class PostsController {
      * 6. 언어별 게시글 조회
      */
     @GetMapping("/posts/platform/{language}")
-    public ResponseEntity findAllByLanguage(@PathVariable("language") String language, int pageNum) throws Exception {
+    public ResponseEntity findAllByLanguage(@PathVariable("language") String language, @RequestParam("pageNum") int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
         Page<Posts> result = null;
         try {
@@ -109,7 +109,7 @@ public class PostsController {
      * 7. 플랫폼별 게시글 조회
      */
     @GetMapping("/posts/problems/{sourceType}")
-    public ResponseEntity findAllByPlatform(@PathVariable("sourceType") String sourceType, int pageNum) throws Exception {
+    public ResponseEntity findAllByPlatform(@PathVariable("sourceType") String sourceType, @RequestParam("pageNum") int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
         Page<Posts> result = null;
         try {
@@ -139,7 +139,7 @@ public class PostsController {
      * 9. 유저별 게시글 조회
      */
     @GetMapping("/posts/users/{userId}")
-    public ResponseEntity findAllByUser(@PathVariable("userId") Long userId, int pageNum) throws Exception {
+    public ResponseEntity findAllByUser(@PathVariable("userId") Long userId, @RequestParam("pageNum") int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
         Page<Posts> result = null;
         try {
@@ -153,10 +153,18 @@ public class PostsController {
     /**
      * 10. 게시글 통합검색
      */
-//    @GetMapping("/posts/search/{keyword}")
-//    public ResponseEntity searchPosts(@PathVariable("keyword") String keyword, int pageNum) {
-//        PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
-//        Page<Posts> result = postsService.searchAllPostsByKeyword(keyword, pageRequest);
-//        return new ResponseEntity(result, HttpStatus.OK);
-//    }
+    @GetMapping("/posts/search")
+    public ResponseEntity searchAllPosts(@RequestParam String keyword, @RequestParam("pageNum") int pageNum) throws Exception {
+        PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
+        Page<Posts> result = null;
+        log.info("시작!" + pageRequest.getOffset());
+        result = postsService.searchAllByKeyword(keyword, pageRequest);
+//        try {
+//        } catch (Exception e) {
+//            return new ResponseEntity(result, HttpStatus.NOT_FOUND);
+//        }
+        log.info(result.toString());
+        return new ResponseEntity(result, HttpStatus.OK);
+    }
+
 }

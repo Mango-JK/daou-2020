@@ -111,13 +111,12 @@ public class PostsService {
         return postsRepository.findAllByUserUserId(userId, pageable);
     }
 
-//    /**
-//     * 10. 게시글 검색 (타이틀) + 페이징
-//     */
-//    @Transactional(readOnly = true)
-//    public Page<Posts> searchAllPostsByKeyword(String keyword, Pageable pageable) {
-//        Specification<Posts> spec = where(PostsSpecs.titleLike(keyword));
-//        Page<Posts> result = postsRepository.searchAllPostsByKeyword(spec, pageable);
-//        return result;
-//    }
+    /**
+     * 10. 통합 검색
+     */
+    public Page<Posts> searchAllByKeyword(String keyword, Pageable pageable) {
+        System.out.println("## Service 통과 ##");
+        return postsRepository.searchAllByKeyword(keyword, pageable);
+    }
+
 }
