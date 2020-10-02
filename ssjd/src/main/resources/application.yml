@@ -1,19 +1,19 @@
 server:
   port: 3000
 
-spring:
-  datasource:
-    username: intern3
-    password: 59dlsXjs##
-    url: jdbc:mariadb://123.2.134.46:3306/intern3
-    driver-class-name: org.mariadb.jdbc.Driver
-
 #spring:
 #  datasource:
-#    username: daou
-#    password: daou2020!
-#    url: jdbc:mariadb://daou-it-maria.cy9pjdfbrh5z.ap-northeast-2.rds.amazonaws.com:3306/daou
+#    username: intern3
+#    password: 59dlsXjs##
+#    url: jdbc:mariadb://123.2.134.46:3306/intern3
 #    driver-class-name: org.mariadb.jdbc.Driver
+
+spring:
+  datasource:
+    username: daou
+    password: daou2020!
+    url: jdbc:mariadb://daou-it-maria.cy9pjdfbrh5z.ap-northeast-2.rds.amazonaws.com:3306/daou
+    driver-class-name: org.mariadb.jdbc.Driver
 
   jpa:
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
