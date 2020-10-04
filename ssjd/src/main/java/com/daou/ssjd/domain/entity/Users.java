@@ -13,7 +13,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Getter
 @Entity
 @Table(name = "users")
-public class Users {
+public class Users{
 
     @Id @GeneratedValue(strategy = IDENTITY)
     @Column(name = "user_id")
@@ -35,4 +35,6 @@ public class Users {
     public void updateNickname(String nickname) {
         this.nickname = nickname;
     }
+
+    public void updatePassword(String password) { this.password = password; }
 }
