@@ -3,6 +3,7 @@ package com.daou.ssjd.service;
 import com.daou.ssjd.domain.entity.Users;
 import io.jsonwebtoken.*;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.stereotype.Component;
 
 import java.util.Date;
@@ -10,11 +11,19 @@ import java.util.Map;
 
 @Component
 @Slf4j
+@ConfigurationProperties(prefix = "jwt")
 public class JwtService {
     
-    private String salt = "ssjd";
-    
-    private Long expireMin = 60L;
+    private String salt;
+    private Long expireMin = 3600L;
+
+    public void setSalt(String salt) {
+        this.salt = salt;
+    }
+
+    public String getSalt() {
+        return salt;
+    }
 
     /**
      * 로그인 성공시 사용자 정보 기반 jwt 토큰 반환
@@ -48,7 +57,11 @@ public class JwtService {
      */
     public void checkValid(final String jwt) {
         log.trace("토큰 검증: {}", jwt);
-        Jwts.parser().setSigningKey(salt.getBytes()).parseClaimsJws(jwt);
+        try {
+            Jwts.parser().setSigningKey(salt.getBytes()).parseClaimsJws(jwt);
+        } catch (final Exception e) {
+            throw new IllegalStateException("토큰 검증을 통과하지 못했습니다.");
+        }
     }
 
     /**
@@ -61,7 +74,7 @@ public class JwtService {
         try {
             claims = Jwts.parser().setSigningKey(salt.getBytes()).parseClaimsJws(jwt);
         } catch (final Exception e) {
-            throw new RuntimeException();
+            throw new RuntimeException("토큰으로부터 정보를 얻을 수 없습니다.");
         }
 
         log.trace("claims: {}", claims);
