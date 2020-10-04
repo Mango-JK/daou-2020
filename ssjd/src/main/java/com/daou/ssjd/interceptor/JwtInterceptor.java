@@ -26,7 +26,7 @@ public class JwtInterceptor implements HandlerInterceptor {
             return true;
         } else {
             // req의 헤더 중 auth_token을 찾음
-            String token = request.getHeader("jwt-auth-token");
+            String token = request.getHeader("Authorization");
             if (token != null && token.length() > 0) {
                 // 유효하면 진행, 아니면 예외 던짐
                 jwtService.checkValid(token);
