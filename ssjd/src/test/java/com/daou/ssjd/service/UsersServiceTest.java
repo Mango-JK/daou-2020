@@ -2,6 +2,7 @@ package com.daou.ssjd.service;
 
 import com.daou.ssjd.domain.entity.Users;
 import com.daou.ssjd.dto.UsersRequestDto;
+import com.daou.ssjd.dto.UsersUpdateRequestDto;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -92,5 +93,72 @@ class UsersServiceTest {
 
         // then
         assertThat(e.getMessage()).isEqualTo("No value present");
+    }
+
+    @Test
+    void 비밀번호_변경() {
+        // given
+        UsersRequestDto testUser = UsersRequestDto.builder()
+                .nickname("testUser")
+                .password("testPassword")
+                .build();
+        UsersRequestDto changePasswordUser = UsersRequestDto.builder()
+                .nickname("testUser")
+                .password("changeTestPassword")
+                .build();
+
+        // when
+        usersService.saveUser(testUser);
+        Users changedUser = usersService.changePassword(changePasswordUser);
+
+        // then
+        assertThat(testUser.getNickname()).isEqualTo(changedUser.getNickname());
+        assertThat(testUser.getPassword()).isNotEqualTo(changedUser.getPassword());
+    }
+
+    @Test
+    void 닉네임_변경() {
+        // given
+        UsersRequestDto testUser = UsersRequestDto.builder()
+                .nickname("testUser")
+                .password("testPassword")
+                .build();
+        UsersUpdateRequestDto changeNicknameUser = UsersUpdateRequestDto.builder()
+                .nickname("testUser")
+                .newNickname("changedTestNickname")
+                .build();
+
+        // when
+        usersService.saveUser(testUser);
+        Users changedUser = usersService.changeNickname(changeNicknameUser);
+
+        // then
+        assertThat(testUser.getNickname()).isNotEqualTo(changedUser.getNickname());
+    }
+
+    @Test
+    void 닉네임_변경_예외() {
+        // given
+        UsersRequestDto testUser = UsersRequestDto.builder()
+                .nickname("testUser")
+                .password("testUserPassword")
+                .build();
+        UsersRequestDto existUser = UsersRequestDto.builder()
+                .nickname("existUser")
+                .password("existUserPassword")
+                .build();
+        UsersUpdateRequestDto changeNicknameUser = UsersUpdateRequestDto.builder()
+                .nickname("testUser")
+                .newNickname("existUser")
+                .build();
+
+        // when
+        usersService.saveUser(testUser);
+        usersService.saveUser(existUser);
+        IllegalStateException e = assertThrows(IllegalStateException.class,
+                () -> usersService.changeNickname(changeNicknameUser));
+
+        // then
+        assertThat(e.getMessage()).isEqualTo("이미 존재하는 회원입니다.");
     }
 }
