@@ -24,7 +24,6 @@ public class Messages{
     @JoinColumn(name = "user_id")
     private Users users;
 
-    @JsonIgnore
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "post_id")
     private Posts posts;

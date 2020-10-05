@@ -4,54 +4,25 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:feature" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
+    <expand />
     <select />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f589253-68bf-4d3c-9ca7-2dda09ce1299" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/config/WebSocketConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/dto/UsersUpdateRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ssjd/src/test/java/com/daou/ssjd/service/JwtServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ssjd/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/SsjdApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/SsjdApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/ChatsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/ChatsController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ssjd/src/main/generated/com/daou/ssjd/domain/entity/QProblems.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/generated/com/daou/ssjd/domain/entity/QProblems.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/PostsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/PostsController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/UsersController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/entity/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/entity/Messages.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/entity/Posts.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/entity/Posts.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/entity/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/entity/Problems.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/entity/Problems.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/repository/PostsRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/repository/PostsRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/repository/PostsRepositoryCustom.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/repository/PostsRepositoryCustom.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/repository/PostsRepositoryImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/repository/PostsRepositoryImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/dto/ChatsSendRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/dto/ChatsSendRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/interceptor/JwtInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/interceptor/JwtInterceptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/ChatsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/ChatsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/JwtService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/dto/PostsSaveRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/dto/PostsSaveRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/dto/PostsUpdateRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/dto/PostsUpdateRequestDto.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/PostsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/PostsService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/UsersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/test/java/com/daou/ssjd/service/UsersServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/test/java/com/daou/ssjd/service/UsersServiceTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ssjd/src/main/resources/banner.txt" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/resources/banner.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ssjd/src/test/java/com/daou/ssjd/service/PostsServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/test/java/com/daou/ssjd/service/PostsServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -121,6 +92,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="ExpandSpringBootJavaOptionsPanel" value="true" />
     <property name="RequestMappingsPanelOrder0" value="0" />
     <property name="RequestMappingsPanelOrder1" value="1" />
     <property name="RequestMappingsPanelWidth0" value="75" />
@@ -128,6 +100,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="add_unversioned_files" value="true" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
@@ -140,7 +113,7 @@
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.annotationProcessors" />
+    <property name="settings.editor.selected.configurable" value="swagger" />
   </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
@@ -149,7 +122,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Spring Boot.SsjdApplication (1)">
+  <component name="RunManager" selected="Spring Boot.SsjdApplication">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -161,50 +134,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="JwtServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="PostsServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$/ssjd" />
         <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.daou.ssjd.service.JwtServiceTest&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="UsersServiceTest" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/ssjd" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.daou.ssjd.service.UsersServiceTest&quot;" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <GradleScriptDebugEnabled>false</GradleScriptDebugEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="UsersServiceTest.회원_없음_예외" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/ssjd" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="--tests &quot;com.daou.ssjd.service.UsersServiceTest.회원_없음_예외&quot;" />
+        <option name="scriptParameters" value="--tests &quot;com.daou.ssjd.service.PostsServiceTest&quot;" />
         <option name="taskDescriptions">
           <list />
         </option>
@@ -290,18 +225,41 @@
     </configuration>
     <configuration name="SsjdApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.daou.ssjd.SsjdApplication" />
+      <option name="ENABLE_LAUNCH_OPTIMIZATION" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SsjdApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" temporary="true" nameIsGenerated="true">
+      <module name="ssjd.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.daou.ssjd.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.daou.ssjd.SsjdApplication" />
+      <option name="ENABLE_LAUNCH_OPTIMIZATION" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Gradle.PostsServiceTest" />
+      <item itemvalue="Gradle.ssjd [compileQuerydsl]" />
+      <item itemvalue="Gradle.ssjd [compileQuerydslJava]" />
+      <item itemvalue="Gradle.ssjd [compileTestJava]" />
+      <item itemvalue="Spring Boot.SsjdApplication" />
+    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Spring Boot.SsjdApplication (1)" />
+        <item itemvalue="Spring Boot.SsjdApplication" />
+        <item itemvalue="Gradle.PostsServiceTest" />
         <item itemvalue="Gradle.ssjd [compileTestJava]" />
         <item itemvalue="Gradle.ssjd [compileQuerydslJava]" />
         <item itemvalue="Gradle.ssjd [compileQuerydsl]" />
-        <item itemvalue="Gradle.UsersServiceTest" />
       </list>
     </recent_temporary>
   </component>
@@ -334,11 +292,41 @@
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:C:/Users/User/Desktop/daou-2020/ssjd/src/main/generated/com/daou/ssjd/domain/entity" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
         <entry key="MAIN">
           <value>
             <State />
           </value>
         </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
@@ -347,30 +335,34 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="53" key="#Plugins" timestamp="1601260327641">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2371" y="67" key="#Plugins" timestamp="1601863659707">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="361" y="53" key="#Plugins/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601260327641" />
+    <state x="2371" y="67" key="#Plugins/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601863659707" />
     <state x="-1480" y="94" key="#Project_Structure" timestamp="1601635246735">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1480" y="94" key="#Project_Structure/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601635246735" />
-    <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601015263651">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2199" y="85" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1601873246445">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601015263651" />
+    <state x="2199" y="85" width="1092" height="715" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601873246445" />
     <state x="538" y="213" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1601355431003">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="538" y="213" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601355431003" />
-    <state x="-1155" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1601639044583">
-      <screen x="-1920" y="0" width="1920" height="1040" />
+    <state x="2685" y="225" key="#com.intellij.ide.util.MemberChooser" timestamp="1601871536922">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1155" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601639044583" />
-    <state x="505" y="202" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1601019644914">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2685" y="225" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601871536922" />
+    <state x="2551" y="255" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1601873207631">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="505" y="202" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601019644914" />
+    <state x="2551" y="255" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601873207631" />
     <state x="282" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1601267616870">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -379,79 +371,89 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601271119339" />
+    <state x="2012" y="92" width="1736" height="856" key="DiffContextDialog" timestamp="1601862772366">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2012" y="92" width="1736" height="856" key="DiffContextDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601862772366" />
     <state x="577" y="167" key="FileChooserDialogImpl" timestamp="1601733219234">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="577" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601021313801" />
     <state x="577" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1601733219234" />
-    <state width="1848" height="296" key="GridCell.Tab.0.bottom" timestamp="1601859679138">
+    <state width="1494" height="330" key="GridCell.Tab.0.bottom" timestamp="1601876714995">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1467" height="395" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601639152429" />
     <state width="1162" height="296" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601854478095" />
-    <state width="1848" height="296" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601859679138" />
+    <state width="1494" height="330" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601876714995" />
     <state width="1160" height="296" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1601857702777" />
-    <state width="1848" height="296" key="GridCell.Tab.0.center" timestamp="1601859679138">
+    <state width="1494" height="330" key="GridCell.Tab.0.center" timestamp="1601876714994">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1467" height="395" key="GridCell.Tab.0.center/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601639152429" />
     <state width="1162" height="296" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601854478094" />
-    <state width="1848" height="296" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601859679138" />
+    <state width="1494" height="330" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601876714994" />
     <state width="1160" height="296" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1601857702777" />
-    <state width="1848" height="296" key="GridCell.Tab.0.left" timestamp="1601859679138">
+    <state width="1494" height="330" key="GridCell.Tab.0.left" timestamp="1601876714994">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1467" height="395" key="GridCell.Tab.0.left/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601639152429" />
     <state width="1162" height="296" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601854478093" />
-    <state width="1848" height="296" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601859679138" />
+    <state width="1494" height="330" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601876714994" />
     <state width="1160" height="296" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1601857702777" />
-    <state width="1848" height="296" key="GridCell.Tab.0.right" timestamp="1601859679138">
+    <state width="1494" height="330" key="GridCell.Tab.0.right" timestamp="1601876714995">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1467" height="395" key="GridCell.Tab.0.right/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601639152429" />
     <state width="1162" height="296" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601854478094" />
-    <state width="1848" height="296" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601859679138" />
+    <state width="1494" height="330" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601876714995" />
     <state width="1160" height="296" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1601857702777" />
-    <state width="1848" height="296" key="GridCell.Tab.1.bottom" timestamp="1601859679138">
+    <state width="1494" height="330" key="GridCell.Tab.1.bottom" timestamp="1601876714996">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1467" height="395" key="GridCell.Tab.1.bottom/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601639152429" />
     <state width="1162" height="296" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601854478098" />
-    <state width="1848" height="296" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601859679138" />
+    <state width="1494" height="330" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601876714996" />
     <state width="1160" height="296" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1601857702777" />
-    <state width="1848" height="296" key="GridCell.Tab.1.center" timestamp="1601859679138">
+    <state width="1494" height="330" key="GridCell.Tab.1.center" timestamp="1601876714995">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1467" height="395" key="GridCell.Tab.1.center/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601639152429" />
     <state width="1162" height="296" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601854478097" />
-    <state width="1848" height="296" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601859679138" />
+    <state width="1494" height="330" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601876714995" />
     <state width="1160" height="296" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1601857702777" />
-    <state width="1848" height="296" key="GridCell.Tab.1.left" timestamp="1601859679138">
+    <state width="1494" height="330" key="GridCell.Tab.1.left" timestamp="1601876714995">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1467" height="395" key="GridCell.Tab.1.left/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601639152429" />
     <state width="1162" height="296" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601854478096" />
-    <state width="1848" height="296" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601859679138" />
+    <state width="1494" height="330" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601876714995" />
     <state width="1160" height="296" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1601857702777" />
-    <state width="1848" height="296" key="GridCell.Tab.1.right" timestamp="1601859679138">
+    <state width="1494" height="330" key="GridCell.Tab.1.right" timestamp="1601876714995">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state width="1467" height="395" key="GridCell.Tab.1.right/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601639152429" />
     <state width="1162" height="296" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601854478097" />
-    <state width="1848" height="296" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601859679138" />
+    <state width="1494" height="330" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601876714995" />
     <state width="1160" height="296" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1601857702777" />
-    <state x="277" y="0" key="SettingsEditor" timestamp="1601260348544">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2458" y="90" key="SettingsEditor" timestamp="1601873131338">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="277" y="0" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601260348544" />
+    <state x="2458" y="90" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601873131338" />
+    <state x="2551" y="254" key="VcsDiffUtil.ChangesDialog" timestamp="1601862672141">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2551" y="254" key="VcsDiffUtil.ChangesDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601862672141" />
     <state x="-1230" y="279" key="extract.method.dialog" timestamp="1601632956467">
       <screen x="-1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1230" y="279" key="extract.method.dialog/0.0.1536.824/-1920.0.1920.1040@-1920.0.1920.1040" timestamp="1601632956467" />
-    <state x="475" y="10" width="585" height="804" key="find.popup" timestamp="1601260301490">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2514" y="13" width="732" height="1015" key="find.popup" timestamp="1601873742132">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="475" y="10" width="585" height="804" key="find.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601260301490" />
+    <state x="2514" y="13" width="732" height="1015" key="find.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601873742132" />
     <state x="180" y="22" key="new project wizard" timestamp="1601019787070">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -460,9 +462,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="425" y="187" key="run.anything.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601015353632" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1601260312641">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="2459" y="183" width="840" height="856" key="search.everywhere.popup" timestamp="1601873240380">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601260312641" />
+    <state x="2459" y="183" width="840" height="856" key="search.everywhere.popup/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601873240380" />
   </component>
 </project>

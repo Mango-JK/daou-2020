@@ -20,8 +20,8 @@ public interface PostsRepository extends JpaRepository<Posts, Long>, PostsReposi
 
     Page<Posts> findAllByUserUserId(Long userId, Pageable pageable);
 
-    Page<Posts> findAllByProblem_ProblemType(String sourceType, Pageable pageable);
+    Page<Posts> findAllByProblem_ProblemSite(String problemSite, Pageable pageable);
 
-    Page<Posts> findAllByLanguageAndProblem_ProblemType(String language, String sourceType, Pageable pageable);
+    Page<Posts> findAllByLanguageAndProblem_ProblemSite(String language, String problemSite, Pageable pageable);
 
 }

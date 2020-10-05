@@ -29,7 +29,7 @@ public class PostsService {
     @Transactional
     public Posts savePost(PostsSaveRequestDto responseDto) {
         Users user = usersService.findById(responseDto.getUserId());
-        Problems problem = new Problems(responseDto.getProblemLink(), responseDto.getProblemType(), responseDto.getProblemTitle());
+        Problems problem = new Problems(responseDto.getProblemLink(), responseDto.getProblemSite(), responseDto.getProblemTitle());
         problemsService.saveProblems(problem);
 
         return postsRepository.save(Posts.builder()
@@ -50,7 +50,7 @@ public class PostsService {
     public void updatePost(long postId, PostsUpdateRequestDto requestDto) {
         Posts post = postsRepository.findByPostId(postId).get();
         long deletedProblem = post.getProblem().getProblemId();
-        Problems problem = new Problems(requestDto.getProblemLink(), requestDto.getProblemType(), requestDto.getProblemTitle());
+        Problems problem = new Problems(requestDto.getProblemLink(), requestDto.getProblemSite(), requestDto.getProblemTitle());
         post.update(post.getUser(), problem, post.getMessages(), requestDto.getLanguage(), requestDto.getTitle(),
                 requestDto.getContent(), requestDto.getCode());
         problemsService.deleteProblem(deletedProblem);
@@ -92,16 +92,16 @@ public class PostsService {
      * 7. 플랫폼별 풀이 조회
      */
     @Transactional(readOnly = true)
-    public Page<Posts> findAllPostsByPlatform(String sourceType, Pageable pageable) {
-        return postsRepository.findAllByProblem_ProblemType(sourceType, pageable);
+    public Page<Posts> findAllPostsByProblemSite(String problemSite, Pageable pageable) {
+        return postsRepository.findAllByProblem_ProblemSite(problemSite, pageable);
     }
 
     /**
      * 8. 언어 + 플랫폼별 풀이 조회
      */
     @Transactional(readOnly = true)
-    public Page<Posts> findAllPostsByLanguageAndPlatform(String language, String sourceType, Pageable pageable) {
-        return postsRepository.findAllByLanguageAndProblem_ProblemType(language, sourceType, pageable);
+    public Page<Posts> findAllPostsByLanguageAndProblemSite(String language, String problemSite, Pageable pageable) {
+        return postsRepository.findAllByLanguageAndProblem_ProblemSite(language, problemSite, pageable);
     }
 
     /**
@@ -119,4 +119,17 @@ public class PostsService {
         return postsRepository.searchAllByKeyword(keyword, pageRequest);
     }
 
+    /**
+     * 11. 플랫폼별 검색
+     */
+    public Page<Posts> searchAllByPlatform(String language, String problemSite, String keyword, PageRequest pageRequest) {
+        if (language == null && problemSite == null) {
+            return postsRepository.searchAllByKeyword(keyword, pageRequest);
+        } else if (language == null) {
+            return postsRepository.searchAllByProblemSite(problemSite, keyword, pageRequest);
+        } else if (problemSite == null) {
+            return postsRepository.searchAllByLanguage(language, keyword, pageRequest);
+        }
+        return postsRepository.searchAllByPlatform(language, problemSite, keyword, pageRequest);
+    }
 }

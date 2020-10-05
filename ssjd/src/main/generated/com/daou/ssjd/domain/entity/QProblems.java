@@ -23,9 +23,9 @@ public class QProblems extends EntityPathBase<Problems> {
 
     public final StringPath problemLink = createString("problemLink");
 
-    public final StringPath problemTitle = createString("problemTitle");
+    public final StringPath problemSite = createString("problemSite");
 
-    public final StringPath problemType = createString("problemType");
+    public final StringPath problemTitle = createString("problemTitle");
 
     public QProblems(String variable) {
         super(Problems.class, forVariable(variable));

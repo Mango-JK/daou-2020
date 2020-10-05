@@ -17,12 +17,45 @@ public class PostsRepositoryImpl implements PostsRepositoryCustom {
 
     @Override
     public Page<Posts> searchAllByKeyword(String keyword, Pageable pageable) {
-        QueryResults<Posts> result = queryFactory
+        QueryResults<Posts> results = queryFactory
                 .selectFrom(posts)
                 .where(posts.title.contains(keyword).or(posts.content.contains(keyword)).or(posts.problem.problemTitle.contains(keyword)))
                 .offset(pageable.getOffset())
                 .limit(pageable.getPageSize())
                 .fetchResults();
-        return new PageImpl<>(result.getResults(), pageable, result.getTotal());
+        return new PageImpl<>(results.getResults(), pageable, results.getTotal());
+    }
+
+    @Override
+    public Page<Posts> searchAllByProblemSite(String problemSite, String keyword, Pageable pageable) {
+        QueryResults<Posts> results = queryFactory
+                .selectFrom(posts)
+                .where(posts.problem.problemSite.eq(problemSite).and(posts.title.contains(keyword).or(posts.content.contains(keyword).or(posts.problem.problemTitle.contains(keyword)))))
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
+                .fetchResults();
+        return new PageImpl<>(results.getResults(), pageable, results.getTotal());
+    }
+
+    @Override
+    public Page<Posts> searchAllByLanguage(String language, String keyword, Pageable pageable) {
+        QueryResults<Posts> results = queryFactory
+                .selectFrom(posts)
+                .where(posts.language.eq(language).and(posts.title.contains(keyword).or(posts.content.contains(keyword).or(posts.problem.problemTitle.contains(keyword)))))
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
+                .fetchResults();
+        return new PageImpl<>(results.getResults(), pageable, results.getTotal());
+    }
+
+    @Override
+    public Page<Posts> searchAllByPlatform(String language, String problemSite, String keyword, Pageable pageable) {
+        QueryResults<Posts> results = queryFactory
+                .selectFrom(posts)
+                .where(posts.language.eq(language).and(posts.problem.problemSite.eq(problemSite).or(posts.title.contains(keyword).or(posts.content.contains(keyword).or(posts.problem.problemTitle.contains(keyword))))))
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
+                .fetchResults();
+        return new PageImpl<>(results.getResults(), pageable, results.getTotal());
     }
 }

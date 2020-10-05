@@ -51,6 +51,7 @@ dependencies {
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
+
 def querydslDir = 'src/main/generated'
 querydsl {
 	library = "com.querydsl:querydsl-apt:4.2.1"
