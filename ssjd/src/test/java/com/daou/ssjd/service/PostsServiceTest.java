@@ -17,6 +17,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @RunWith(SpringRunner.class)
@@ -401,7 +402,7 @@ class PostsServiceTest {
      */
     @Transactional(readOnly = true)
     @Test
-    public void 언어_플랫폼으로_조회(){
+    public void 언어_플랫폼으로_조회() {
         // given
         PostsSaveRequestDto firstOne = PostsSaveRequestDto.builder()
                 .userId(3L)
@@ -458,7 +459,7 @@ class PostsServiceTest {
      */
     @Transactional(readOnly = true)
     @Test
-    public void 유저별_게시글_조회(){
+    public void 유저별_게시글_조회() {
         // given
         PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
                 .userId(3L)
@@ -477,8 +478,69 @@ class PostsServiceTest {
         Page<Posts> resultPosts = postsService.findAllPostsByUser(3L, pageRequest);
 
         // then
-        for(Posts post : resultPosts) {
+        for (Posts post : resultPosts) {
             Assertions.assertThat(post.getUser().getUserId()).isEqualTo(3L);
         }
+    }
+
+    /**
+     * 10. 게시글 통합 검색
+     */
+    @Transactional
+    @Test
+    public void 게시글_통합검색() {
+        // given
+        PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
+                .userId(3L)
+                .problemLink("https://www.daou.co.kr")
+                .problemSite("SearchTest_Site")
+                .problemTitle("통합 검색")
+                .language("FirstOne_Language")
+                .title("전체 검색을 실행합니다.")
+                .content("search")
+                .code("search")
+                .build();
+        postsService.savePost(requestDto);
+
+        // when
+        PageRequest pageRequest = PageRequest.of(0, 6, Sort.by("modifiedDate").descending());
+        Page<Posts> resultPosts = postsService.searchAllByKeyword("통합 검색", pageRequest);
+
+        // then
+        List<Posts> results = resultPosts.getContent();
+        Posts resultOne = results.get(0);
+        Assertions.assertThat(results.get(0).getTitle()).isEqualTo(requestDto.getTitle());
+    }
+
+    /**
+     * 11. 플랫폼별 검색
+     */
+    @Transactional
+    @Test
+    public void 게시글_플랫폼별_검색() {
+        // given
+        PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
+                .userId(3L)
+                .problemLink("https://www.daou.co.kr")
+                .problemSite("SearchTest_Site")
+                .problemTitle("플랫폼별 검색")
+                .language("SearchScript")
+                .title("플랫폼별 검색 테스트")
+                .content("컨텐츠 내용입니다")
+                .code("search")
+                .build();
+        postsService.savePost(requestDto);
+
+        // when
+        PageRequest pageRequest = PageRequest.of(0, 6, Sort.by("modifiedDate").descending());
+        Page<Posts> resultByLanguage = postsService.searchAllByPlatform("SearchScript", null, "컨텐츠", pageRequest);
+        Page<Posts> resultBySite = postsService.searchAllByPlatform(null, "SearchTest_Site", "컨텐츠", pageRequest);
+
+        // then
+        Posts languageSearchTestResult = resultByLanguage.getContent().get(0);
+        Posts siteSearchTestResult = resultBySite.getContent().get(0);
+        Assertions.assertThat(languageSearchTestResult.getTitle()).isEqualTo("플랫폼별 검색 테스트");
+        Assertions.assertThat(siteSearchTestResult.getTitle()).isEqualTo("플랫폼별 검색 테스트");
+
     }
 }
