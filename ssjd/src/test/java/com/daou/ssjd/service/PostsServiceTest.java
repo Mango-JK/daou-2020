@@ -45,7 +45,7 @@ class PostsServiceTest {
         PostsSaveRequestDto dto = PostsSaveRequestDto.builder()
                 .userId(1L)
                 .problemLink("https://javacoding.tistory.com/71?category=354715")
-                .problemType("백준")
+                .problemSite("백준")
                 .problemTitle("뱀")
                 .language("JAVA")
                 .title("뱀 문제 풀어보세요")
@@ -198,7 +198,7 @@ class PostsServiceTest {
         PostsSaveRequestDto dto = PostsSaveRequestDto.builder()
                 .userId(1L)
                 .problemLink("https://www.naver.com")
-                .problemType("업데이트 테스트용")
+                .problemSite("업데이트 테스트용")
                 .problemTitle("업데이트 테스트")
                 .language("TEST")
                 .title("게시글 업데이트 풀어보세요")
@@ -229,7 +229,7 @@ class PostsServiceTest {
         PostsSaveRequestDto dto = PostsSaveRequestDto.builder()
                 .userId(1L)
                 .problemLink("https://www.naver.com2")
-                .problemType("삭제 테스트용")
+                .problemSite("삭제 테스트용")
                 .problemTitle("삭제 테스트")
                 .language("TEST")
                 .title("게시글 삭제 풀어보세요")
@@ -259,7 +259,7 @@ class PostsServiceTest {
         PostsSaveRequestDto dto = PostsSaveRequestDto.builder()
                 .userId(3L)
                 .problemLink("https://www.daou.co.kr")
-                .problemType("조회 테스트용")
+                .problemSite("조회 테스트용")
                 .problemTitle("조회 테스트")
                 .language("Vue.js")
                 .title("게시글 조회입니다.")
@@ -288,7 +288,7 @@ class PostsServiceTest {
         PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
                 .userId(3L)
                 .problemLink("https://www.daou.co.kr")
-                .problemType("전체조회_페이징")
+                .problemSite("전체조회_페이징")
                 .problemTitle("전체조회_페이징")
                 .language("Vue.js")
                 .title("전체조회_페이징.")
@@ -322,7 +322,7 @@ class PostsServiceTest {
         PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
                 .userId(3L)
                 .problemLink("https://www.daou.co.kr")
-                .problemType("전체조회_페이징")
+                .problemSite("전체조회_페이징")
                 .problemTitle("전체조회_페이징")
                 .language("TEST_JAVA")
                 .title("언어별 조회 테스트 1번 객체")
@@ -333,7 +333,7 @@ class PostsServiceTest {
         PostsSaveRequestDto requestDto2 = PostsSaveRequestDto.builder()
                 .userId(3L)
                 .problemLink("https://www.daou.co.kr")
-                .problemType("전체조회_페이징")
+                .problemSite("전체조회_페이징")
                 .problemTitle("전체조회_페이징")
                 .language("TEST_JAVA2")
                 .title("언어별 조회 테스트 2번 객체")
@@ -364,7 +364,7 @@ class PostsServiceTest {
         PostsSaveRequestDto firstOne = PostsSaveRequestDto.builder()
                 .userId(3L)
                 .problemLink("https://www.daou.co.kr")
-                .problemType("프로그래머스")
+                .problemSite("프로그래머스")
                 .problemTitle("플랫폼별 조회")
                 .language("TEST_JAVA")
                 .title("플랫폼별 조회 테스트 1번 객체(프로그래머스)")
@@ -375,7 +375,7 @@ class PostsServiceTest {
         PostsSaveRequestDto secondOne = PostsSaveRequestDto.builder()
                 .userId(3L)
                 .problemLink("https://www.daou.co.kr")
-                .problemType("백준")
+                .problemSite("백준")
                 .problemTitle("플랫폼별 조회")
                 .language("TEST_JAVA")
                 .title("플랫폼별 조회 테스트 2번 객체(백준)")
@@ -388,11 +388,11 @@ class PostsServiceTest {
 
         // when
         PageRequest pageRequest = PageRequest.of(0, 6, Sort.by("modifiedDate").descending());
-        Page<Posts> findByPlatform = postsService.findAllPostsByPlatform("백준", pageRequest);
+        Page<Posts> findByPlatform = postsService.findAllPostsByProblemSite("백준", pageRequest);
         Posts firstOneByPlatform = findByPlatform.getContent().get(0);
 
         // then
-        Assertions.assertThat(firstOneByPlatform.getProblem().getProblemType()).isEqualTo("백준");
+        Assertions.assertThat(firstOneByPlatform.getProblem().getProblemSite()).isEqualTo("백준");
         Assertions.assertThat(firstOneByPlatform.getTitle()).isEqualTo("플랫폼별 조회 테스트 2번 객체(백준)");
     }
 
@@ -406,7 +406,7 @@ class PostsServiceTest {
         PostsSaveRequestDto firstOne = PostsSaveRequestDto.builder()
                 .userId(3L)
                 .problemLink("https://www.daou.co.kr")
-                .problemType("FirstOne_Type")
+                .problemSite("FirstOne_Type")
                 .problemTitle("언어와 플랫폼으로 조회하기")
                 .language("FirstOne_Language")
                 .title("언어+플랫폼 테스트 1번 객체")
@@ -417,7 +417,7 @@ class PostsServiceTest {
         PostsSaveRequestDto secondOne = PostsSaveRequestDto.builder()
                 .userId(3L)
                 .problemLink("https://www.daou.co.kr")
-                .problemType("백준")
+                .problemSite("백준")
                 .problemTitle("플랫폼별 조회")
                 .language("TEST_JAVA")
                 .title("언어+플랫폼 테스트 2번 객체")
@@ -428,7 +428,7 @@ class PostsServiceTest {
         PostsSaveRequestDto thirdOne = PostsSaveRequestDto.builder()
                 .userId(3L)
                 .problemLink("https://www.daou.co.kr")
-                .problemType("FirstOne_Type")
+                .problemSite("FirstOne_Type")
                 .problemTitle("언어와 플랫폼으로 조회하기 2번째 객체!")
                 .language("FirstOne_Language")
                 .title("언어+플랫폼 테스트 3번 객체")
@@ -442,13 +442,13 @@ class PostsServiceTest {
 
         // when
         PageRequest pageRequest = PageRequest.of(0, 6, Sort.by("modifiedDate").descending());
-        Page<Posts> resultPosts = postsService.findAllPostsByLanguageAndPlatform("FirstOne_Language", "FirstOne_Type", pageRequest);
+        Page<Posts> resultPosts = postsService.findAllPostsByLanguageAndProblemSite("FirstOne_Language", "FirstOne_Type", pageRequest);
         Posts firstOneByPlatform = resultPosts.getContent().get(0);
         Posts secondOneByPlatform = resultPosts.getContent().get(1);
 
         // then
         Assertions.assertThat(firstOneByPlatform.getLanguage()).isEqualTo(secondOneByPlatform.getLanguage());
-        Assertions.assertThat(firstOneByPlatform.getProblem().getProblemType()).isEqualTo(secondOneByPlatform.getProblem().getProblemType());
+        Assertions.assertThat(firstOneByPlatform.getProblem().getProblemSite()).isEqualTo(secondOneByPlatform.getProblem().getProblemSite());
         Assertions.assertThat(firstOneByPlatform.getTitle()).isEqualTo("언어+플랫폼 테스트 1번 객체");
         Assertions.assertThat(secondOneByPlatform.getTitle()).isEqualTo("언어+플랫폼 테스트 3번 객체");
     }
@@ -463,7 +463,7 @@ class PostsServiceTest {
         PostsSaveRequestDto requestDto = PostsSaveRequestDto.builder()
                 .userId(3L)
                 .problemLink("https://www.daou.co.kr")
-                .problemType("FirstOne_Type")
+                .problemSite("FirstOne_Type")
                 .problemTitle("언어와 플랫폼으로 조회하기")
                 .language("FirstOne_Language")
                 .title("언어+플랫폼 테스트 1번 객체")

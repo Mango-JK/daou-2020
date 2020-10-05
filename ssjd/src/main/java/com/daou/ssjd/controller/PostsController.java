@@ -15,6 +15,9 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Nullable;
+
+@CrossOrigin(origins = "*")
 @Slf4j
 @Api(tags = "Posts")
 @RequiredArgsConstructor
@@ -94,7 +97,7 @@ public class PostsController {
      * 6. 언어별 게시글 조회
      */
     @GetMapping("/posts/platform/{language}")
-    public ResponseEntity findAllByLanguage(@PathVariable("language") String language, int pageNum) throws Exception {
+    public ResponseEntity findAllByLanguage(@PathVariable("language") String language, @RequestParam("pageNum") int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
         Page<Posts> result = null;
         try {
@@ -108,12 +111,12 @@ public class PostsController {
     /**
      * 7. 플랫폼별 게시글 조회
      */
-    @GetMapping("/posts/problems/{sourceType}")
-    public ResponseEntity findAllByPlatform(@PathVariable("sourceType") String sourceType, int pageNum) throws Exception {
+    @GetMapping("/posts/problems/{problemSite}")
+    public ResponseEntity findAllByPlatform(@PathVariable("problemSite") String problemSite, @RequestParam("pageNum") int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
         Page<Posts> result = null;
         try {
-            result = postsService.findAllPostsByPlatform(sourceType, pageRequest);
+            result = postsService.findAllPostsByProblemSite(problemSite, pageRequest);
         } catch (Exception e) {
             return new ResponseEntity(result, HttpStatus.NOT_FOUND);
         }
@@ -124,11 +127,11 @@ public class PostsController {
      * 8. 언어 + 플랫폼별 게시글 조회
      */
     @GetMapping("/posts/platform/language")
-    public ResponseEntity findAllByPlatformAndLanguage(@RequestParam("language") String language, @RequestParam("sourceType") String sourceType, int pageNum) throws Exception {
+    public ResponseEntity findAllByPlatformAndLanguage(@RequestParam("language") String language, @RequestParam("problemSite") String problemSite, int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
         Page<Posts> result = null;
         try {
-            result = postsService.findAllPostsByLanguageAndPlatform(language, sourceType, pageRequest);
+            result = postsService.findAllPostsByLanguageAndProblemSite(language, problemSite, pageRequest);
         } catch (Exception e) {
             return new ResponseEntity(result, HttpStatus.NOT_FOUND);
         }
@@ -139,7 +142,7 @@ public class PostsController {
      * 9. 유저별 게시글 조회
      */
     @GetMapping("/posts/users/{userId}")
-    public ResponseEntity findAllByUser(@PathVariable("userId") Long userId, int pageNum) throws Exception {
+    public ResponseEntity findAllByUser(@PathVariable("userId") Long userId, @RequestParam("pageNum") int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
         Page<Posts> result = null;
         try {
@@ -153,10 +156,34 @@ public class PostsController {
     /**
      * 10. 게시글 통합검색
      */
-//    @GetMapping("/posts/search/{keyword}")
-//    public ResponseEntity searchPosts(@PathVariable("keyword") String keyword, int pageNum) {
-//        PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
-//        Page<Posts> result = postsService.searchAllPostsByKeyword(keyword, pageRequest);
-//        return new ResponseEntity(result, HttpStatus.OK);
-//    }
+    @GetMapping("/posts/search/{keyword}")
+    public ResponseEntity searchAllPosts(@PathVariable @Nullable String keyword, @RequestParam int pageNum) throws Exception {
+        PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
+        Page<Posts> result = null;
+
+        try {
+            result = postsService.searchAllByKeyword(keyword, pageRequest);
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+
+        result = postsService.searchAllByKeyword(keyword, pageRequest);
+        return new ResponseEntity(result.getContent(), HttpStatus.OK);
+    }
+
+    /**
+     * 11. 플랫폼별 검색
+     */
+    @GetMapping("/posts/search")
+    public ResponseEntity searchAllByPlatform(@RequestParam @Nullable String language, @RequestParam @Nullable String problemSite, @RequestParam @Nullable String keyword, @RequestParam int pageNum) throws Exception {
+        PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
+        Page<Posts> result = null;
+
+        try {
+            result = postsService.searchAllByPlatform(language, problemSite, keyword, pageRequest);
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity(result.getContent(), HttpStatus.OK);
+    }
 }

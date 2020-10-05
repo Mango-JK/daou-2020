@@ -1,6 +1,5 @@
 package com.daou.ssjd.domain.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,7 +24,6 @@ public class Messages{
     @JoinColumn(name = "user_id")
     private Users users;
 
-    @JsonBackReference
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "post_id")
     private Posts posts;

@@ -14,7 +14,7 @@ public class PostsSaveRequestDto {
     @NotNull
     private Long userId;
     private String problemLink;
-    private String problemType;
+    private String problemSite;
     private String problemTitle;
     private String language;
     private String title;
@@ -24,11 +24,11 @@ public class PostsSaveRequestDto {
     private String code;
 
     @Builder
-    public PostsSaveRequestDto(Long userId, String problemLink, String problemType, String problemTitle,
+    public PostsSaveRequestDto(Long userId, String problemLink, String problemSite, String problemTitle,
                                String language, String title, String content, String code) {
         this.userId = userId;
         this.problemLink = problemLink;
-        this.problemType = problemType;
+        this.problemSite = problemSite;
         this.problemTitle = problemTitle;
         this.language = language;
         this.title = title;
