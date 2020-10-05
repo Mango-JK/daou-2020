@@ -28,17 +28,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3f589253-68bf-4d3c-9ca7-2dda09ce1299" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/dto/UsersUpdateRequestDto.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ssjd/src/test/java/com/daou/ssjd/service/JwtServiceTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/UsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/entity/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/entity/Users.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/JwtService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/JwtService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/UsersService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/UsersService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/test/java/com/daou/ssjd/service/UsersServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/test/java/com/daou/ssjd/service/UsersServiceTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
