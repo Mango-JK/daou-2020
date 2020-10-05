@@ -19,6 +19,7 @@ public class ChatsService {
     private final PostsService postsService;
     private final UsersService usersService;
 
+    @Transactional
     public Messages sendMessage(long postId, ChatsSendRequestDto responseDto) {
         Users user = usersService.findById(responseDto.getUserId());
         Optional<Posts> post = postsService.findByPostId(postId);

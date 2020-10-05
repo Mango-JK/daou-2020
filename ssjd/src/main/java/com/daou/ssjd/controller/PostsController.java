@@ -153,18 +153,19 @@ public class PostsController {
     /**
      * 10. 게시글 통합검색
      */
-    @GetMapping("/posts/search")
-    public ResponseEntity searchAllPosts(@RequestParam String keyword, @RequestParam("pageNum") int pageNum) throws Exception {
+    @GetMapping("/posts/search/{keyword}")
+    public ResponseEntity searchAllPosts(@PathVariable("keyword") String keyword, @RequestParam int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
         Page<Posts> result = null;
-        log.info("시작!" + pageRequest.getOffset());
+
+        try {
+            result = postsService.searchAllByKeyword(keyword, pageRequest);
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+
         result = postsService.searchAllByKeyword(keyword, pageRequest);
-//        try {
-//        } catch (Exception e) {
-//            return new ResponseEntity(result, HttpStatus.NOT_FOUND);
-//        }
-        log.info(result.toString());
-        return new ResponseEntity(result, HttpStatus.OK);
+        return new ResponseEntity(result.getContent(), HttpStatus.OK);
     }
 
 }

@@ -8,6 +8,7 @@ import com.daou.ssjd.dto.PostsSaveRequestDto;
 import com.daou.ssjd.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -114,9 +115,8 @@ public class PostsService {
     /**
      * 10. 통합 검색
      */
-    public Page<Posts> searchAllByKeyword(String keyword, Pageable pageable) {
-        System.out.println("## Service 통과 ##");
-        return postsRepository.searchAllByKeyword(keyword, pageable);
+    public Page<Posts> searchAllByKeyword(String keyword, PageRequest pageRequest) {
+        return postsRepository.searchAllByKeyword(keyword, pageRequest);
     }
 
 }

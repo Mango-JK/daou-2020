@@ -14,7 +14,7 @@ import static javax.persistence.GenerationType.IDENTITY;
 @Getter
 @Entity
 @Table(name = "messages")
-public class Messages {
+public class Messages{
 
     @Id @GeneratedValue(strategy = IDENTITY)
     @Column(name = "message_id")
@@ -24,6 +24,7 @@ public class Messages {
     @JoinColumn(name = "user_id")
     private Users users;
 
+    @JsonIgnore
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "post_id")
     private Posts posts;
@@ -34,6 +35,9 @@ public class Messages {
 
     @Column(name = "created_date")
     private LocalDateTime createdDate;
+
+    @PrePersist
+    public void createdDate(){this.createdDate = LocalDateTime.now();}
 
     @Builder
     public Messages(Users user, Posts posts, String content) {

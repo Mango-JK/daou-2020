@@ -17,15 +17,12 @@ public class PostsRepositoryImpl implements PostsRepositoryCustom {
 
     @Override
     public Page<Posts> searchAllByKeyword(String keyword, Pageable pageable) {
-        System.out.printf("IMPL로 왔다");
-        
         QueryResults<Posts> result = queryFactory
-                .select(posts)
-                .where(posts.content.eq(keyword))
-                .offset(6)
-                .limit(0)
+                .selectFrom(posts)
+                .where(posts.title.contains(keyword).or(posts.content.contains(keyword)).or(posts.problem.problemTitle.contains(keyword)))
+                .offset(pageable.getOffset())
+                .limit(pageable.getPageSize())
                 .fetchResults();
-        System.out.printf("result : " + result.toString());
         return new PageImpl<>(result.getResults(), pageable, result.getTotal());
     }
 }

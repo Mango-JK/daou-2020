@@ -1,11 +1,11 @@
 package com.daou.ssjd.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +36,7 @@ public class Posts extends BaseTimeEntity {
     @JoinColumn(name = "problem_id")
     private Problems problem;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "posts", fetch = EAGER)
     private List<Messages> messages = new ArrayList<>();
 

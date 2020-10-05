@@ -24,6 +24,4 @@ public interface PostsRepository extends JpaRepository<Posts, Long>, PostsReposi
 
     Page<Posts> findAllByLanguageAndProblem_ProblemType(String language, String sourceType, Pageable pageable);
 
-    Page<Posts> searchAllByKeyword(String keyword, Pageable pageable);
-
 }
