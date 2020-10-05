@@ -1,5 +1,6 @@
 package com.daou.ssjd.domain.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -36,6 +37,7 @@ public class Posts extends BaseTimeEntity {
     @JoinColumn(name = "problem_id")
     private Problems problem;
 
+    @JsonManagedReference
     @OneToMany(mappedBy = "posts", fetch = EAGER)
     private List<Messages> messages = new ArrayList<>();
 
