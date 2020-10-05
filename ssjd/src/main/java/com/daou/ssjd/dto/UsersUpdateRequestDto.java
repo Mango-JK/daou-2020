@@ -16,7 +16,7 @@ public class UsersUpdateRequestDto {
     private String newNickname;
 
     @Builder
-    public UsersUpdateRequestDto (String nickname, String password, String newNickname) {
+    public UsersUpdateRequestDto (String nickname, String newNickname) {
         this.nickname = nickname;
         this.newNickname = newNickname;
     }
