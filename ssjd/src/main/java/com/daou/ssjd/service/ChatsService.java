@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 
 @Transactional
@@ -30,5 +31,9 @@ public class ChatsService {
                 .content(responseDto.getContent())
                 .build()
         );
+    }
+
+    public List<Messages> findByPostId(Long postId) {
+        return messagesRepository.findAllByPostsPostId(postId).get();
     }
 }
