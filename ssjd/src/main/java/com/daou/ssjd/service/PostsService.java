@@ -8,6 +8,7 @@ import com.daou.ssjd.dto.PostsSaveRequestDto;
 import com.daou.ssjd.dto.PostsUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -111,13 +112,11 @@ public class PostsService {
         return postsRepository.findAllByUserUserId(userId, pageable);
     }
 
-//    /**
-//     * 10. 게시글 검색 (타이틀) + 페이징
-//     */
-//    @Transactional(readOnly = true)
-//    public Page<Posts> searchAllPostsByKeyword(String keyword, Pageable pageable) {
-//        Specification<Posts> spec = where(PostsSpecs.titleLike(keyword));
-//        Page<Posts> result = postsRepository.searchAllPostsByKeyword(spec, pageable);
-//        return result;
-//    }
+    /**
+     * 10. 통합 검색
+     */
+    public Page<Posts> searchAllByKeyword(String keyword, PageRequest pageRequest) {
+        return postsRepository.searchAllByKeyword(keyword, pageRequest);
+    }
+
 }
