@@ -62,11 +62,9 @@ public class Posts extends BaseTimeEntity {
         this.code = code;
     }
 
-    public void update(Users user, Problems problem, List<Messages> messages,
-                       String language, String title, String content, String code) {
+    public void update(Users user, Problems problem, String language, String title, String content, String code) {
         this.user = user;
         this.problem = problem;
-        this.messages = messages;
         this.language = language;
         this.title = title;
         this.content = content;

@@ -1,12 +1,10 @@
 package com.daou.ssjd.dto;
 
-import com.daou.ssjd.domain.entity.Messages;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Lob;
-import java.util.List;
 
 @Setter
 @Getter
@@ -16,7 +14,6 @@ public class PostsUpdateRequestDto {
     private String problemLink;
     private String problemSite;
     private String problemTitle;
-    private List<Messages> messages;
     private String language;
     private String title;
     @Lob

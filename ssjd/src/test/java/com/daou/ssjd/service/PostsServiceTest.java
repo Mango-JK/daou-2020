@@ -541,6 +541,5 @@ class PostsServiceTest {
         Posts siteSearchTestResult = resultBySite.getContent().get(0);
         Assertions.assertThat(languageSearchTestResult.getTitle()).isEqualTo("플랫폼별 검색 테스트");
         Assertions.assertThat(siteSearchTestResult.getTitle()).isEqualTo("플랫폼별 검색 테스트");
-
     }
 }

@@ -50,7 +50,7 @@ public class PostsController {
         } catch (Exception e) {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity(postsService.findByPostId(postId).get(), HttpStatus.OK);
     }
 
     /**
@@ -88,9 +88,9 @@ public class PostsController {
         try {
             result = postsService.findAllPosts(pageRequest);
         } catch (Exception e) {
-            return new ResponseEntity(result, HttpStatus.NOT_FOUND);
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity<>(result, HttpStatus.OK);
+        return new ResponseEntity<>(result.getContent(), HttpStatus.OK);
     }
 
     /**
@@ -103,9 +103,9 @@ public class PostsController {
         try {
             result = postsService.findAllPostsByLanguage(language, pageRequest);
         } catch (Exception e) {
-            return new ResponseEntity(result, HttpStatus.NOT_FOUND);
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity(result, HttpStatus.OK);
+        return new ResponseEntity(result.getContent(), HttpStatus.OK);
     }
 
     /**
@@ -118,9 +118,9 @@ public class PostsController {
         try {
             result = postsService.findAllPostsByProblemSite(problemSite, pageRequest);
         } catch (Exception e) {
-            return new ResponseEntity(result, HttpStatus.NOT_FOUND);
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity(result, HttpStatus.OK);
+        return new ResponseEntity(result.getContent(), HttpStatus.OK);
     }
 
     /**
@@ -133,9 +133,9 @@ public class PostsController {
         try {
             result = postsService.findAllPostsByLanguageAndProblemSite(language, problemSite, pageRequest);
         } catch (Exception e) {
-            return new ResponseEntity(result, HttpStatus.NOT_FOUND);
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity(result, HttpStatus.OK);
+        return new ResponseEntity(result.getContent(), HttpStatus.OK);
     }
 
     /**
@@ -148,9 +148,9 @@ public class PostsController {
         try {
             result = postsService.findAllPostsByUser(userId, pageRequest);
         } catch (Exception e) {
-            return new ResponseEntity(result, HttpStatus.NOT_FOUND);
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
-        return new ResponseEntity(result, HttpStatus.OK);
+        return new ResponseEntity(result.getContent(), HttpStatus.OK);
     }
 
     /**

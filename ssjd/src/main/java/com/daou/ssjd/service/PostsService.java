@@ -51,7 +51,7 @@ public class PostsService {
         Posts post = postsRepository.findByPostId(postId).get();
         long deletedProblem = post.getProblem().getProblemId();
         Problems problem = new Problems(requestDto.getProblemLink(), requestDto.getProblemSite(), requestDto.getProblemTitle());
-        post.update(post.getUser(), problem, post.getMessages(), requestDto.getLanguage(), requestDto.getTitle(),
+        post.update(post.getUser(), problem, requestDto.getLanguage(), requestDto.getTitle(),
                 requestDto.getContent(), requestDto.getCode());
         problemsService.deleteProblem(deletedProblem);
     }
