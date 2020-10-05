@@ -33,6 +33,8 @@ public class JwtInterceptor implements HandlerInterceptor {
                 log.trace("유효한 토큰: {}", token);
                 return true;
             } else {
+                log.error("토큰 에러");
+                log.error(token);
                 throw new RuntimeException("인증 토큰이 없습니다.");
             }
         }
