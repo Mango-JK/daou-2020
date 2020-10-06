@@ -13,12 +13,11 @@ import javax.persistence.Lob;
 @NoArgsConstructor
 public class ChatsSendRequestDto {
     @NotNull
-    private Long userId;
-    @Lob
+    private int userId;
     private String content;
 
     @Builder
-    public ChatsSendRequestDto(Long userId, String content) {
+    public ChatsSendRequestDto(int userId, String content) {
         this.userId = userId;
         this.content = content;
     }

@@ -47,9 +47,9 @@ public class PostsService {
      * 2. 게시글 수정
      */
     @Transactional
-    public void updatePost(long postId, PostsUpdateRequestDto requestDto) {
+    public void updatePost(int postId, PostsUpdateRequestDto requestDto) {
         Posts post = postsRepository.findByPostId(postId).get();
-        long deletedProblem = post.getProblem().getProblemId();
+        int deletedProblem = post.getProblem().getProblemId();
         Problems problem = new Problems(requestDto.getProblemLink(), requestDto.getProblemSite(), requestDto.getProblemTitle());
         post.update(post.getUser(), problem, requestDto.getLanguage(), requestDto.getTitle(),
                 requestDto.getContent(), requestDto.getCode());
@@ -60,7 +60,7 @@ public class PostsService {
      * 3. 게시글 삭제
      */
     @Transactional
-    public void deletePost(long postId) {
+    public void deletePost(int postId) {
         Posts deleteTargetPost = postsRepository.findByPostId(postId).get();
         postsRepository.delete(deleteTargetPost);
     }
@@ -68,7 +68,7 @@ public class PostsService {
     /**
      * 4. 게시글 상세 조회
      */
-    public Optional<Posts> findByPostId(long postId) {
+    public Optional<Posts> findByPostId(int postId) {
         return postsRepository.findByPostId(postId);
     }
 
@@ -108,7 +108,7 @@ public class PostsService {
      * 9. 유저별 풀이 조회
      */
     @Transactional(readOnly = true)
-    public Page<Posts> findAllPostsByUser(Long userId, Pageable pageable) {
+    public Page<Posts> findAllPostsByUser(int userId, Pageable pageable) {
         return postsRepository.findAllByUserUserId(userId, pageable);
     }
 

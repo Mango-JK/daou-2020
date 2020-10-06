@@ -34,7 +34,7 @@ public class ChatsController {
      */
     @MessageMapping("/send/{postId}")
     @SendTo("/sub/receive/{postId}")
-    public Messages sendMessages(@DestinationVariable("postId") long postId, ChatsSendRequestDto requestDto){
+    public Messages sendMessages(@DestinationVariable("postId") int postId, ChatsSendRequestDto requestDto){
         log.info(requestDto.getUserId()+"/" + requestDto.getContent());
         return chatsService.sendMessage(postId, requestDto);
     }
@@ -43,7 +43,7 @@ public class ChatsController {
      * 2. 게시글별 메세지 찾기
      */
     @GetMapping("/api/chats/{postId}")
-    public ResponseEntity findByPostId(@PathVariable("postId") Long postId) throws Exception {
+    public ResponseEntity findByPostId(@PathVariable("postId") int postId) throws Exception {
         List<Messages> messagesList = new ArrayList<>();
         try{
             messagesList = chatsService.findByPostId(postId);

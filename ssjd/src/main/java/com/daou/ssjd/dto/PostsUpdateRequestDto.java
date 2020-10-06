@@ -10,14 +10,12 @@ import javax.persistence.Lob;
 @Getter
 @AllArgsConstructor
 public class PostsUpdateRequestDto {
-    private Long userId;
+    private int userId;
     private String problemLink;
     private String problemSite;
     private String problemTitle;
     private String language;
     private String title;
-    @Lob
     private String content;
-    @Lob
     private String code;
 }

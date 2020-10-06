@@ -23,7 +23,7 @@ public class QUsers extends EntityPathBase<Users> {
 
     public final StringPath password = createString("password");
 
-    public final NumberPath<Long> userId = createNumber("userId", Long.class);
+    public final NumberPath<Integer> userId = createNumber("userId", Integer.class);
 
     public QUsers(String variable) {
         super(Users.class, forVariable(variable));

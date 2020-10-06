@@ -8,6 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 @Repository
-public interface MessagesRepository extends JpaRepository<Messages, Long> {
-    Optional<List<Messages>> findAllByPostsPostId(Long postId);
+public interface MessagesRepository extends JpaRepository<Messages, Integer> {
+    Optional<List<Messages>> findAllByPostsPostId(int postId);
 }

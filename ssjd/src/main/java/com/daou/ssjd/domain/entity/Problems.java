@@ -17,7 +17,7 @@ public class Problems {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "problem_id")
-    private Long problemId;
+    private int problemId;
 
     @Column(name = "problem_link")
     private String problemLink;
