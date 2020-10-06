@@ -21,7 +21,7 @@ public class ChatsService {
     private final UsersService usersService;
 
     @Transactional
-    public Messages sendMessage(long postId, ChatsSendRequestDto responseDto) {
+    public Messages sendMessage(int postId, ChatsSendRequestDto responseDto) {
         Users user = usersService.findById(responseDto.getUserId());
         Optional<Posts> post = postsService.findByPostId(postId);
 
@@ -33,7 +33,7 @@ public class ChatsService {
         );
     }
 
-    public List<Messages> findByPostId(Long postId) {
+    public List<Messages> findByPostId(int postId) {
         return messagesRepository.findAllByPostsPostId(postId).get();
     }
 }

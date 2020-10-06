@@ -19,7 +19,7 @@ public class QProblems extends EntityPathBase<Problems> {
 
     public static final QProblems problems = new QProblems("problems");
 
-    public final NumberPath<Long> problemId = createNumber("problemId", Long.class);
+    public final NumberPath<Integer> problemId = createNumber("problemId", Integer.class);
 
     public final StringPath problemLink = createString("problemLink");
 

@@ -20,7 +20,7 @@ public class Messages{
 
     @Id @GeneratedValue(strategy = IDENTITY)
     @Column(name = "message_id")
-    private Long messageId;
+    private int messageId;
 
     @ManyToOne(fetch = EAGER)
     @JoinColumn(name = "user_id")
@@ -31,7 +31,6 @@ public class Messages{
     @JoinColumn(name = "post_id")
     private Posts posts;
 
-    @Lob
     @Column(name = "content")
     private String content;
 

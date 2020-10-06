@@ -9,16 +9,16 @@ import org.springframework.stereotype.Repository;
 import java.util.Optional;
 
 @Repository
-public interface PostsRepository extends JpaRepository<Posts, Long>, PostsRepositoryCustom {
+public interface PostsRepository extends JpaRepository<Posts, Integer>, PostsRepositoryCustom {
 
-    Optional<Posts> findByPostId(Long postId);
+    Optional<Posts> findByPostId(int postId);
 
     @Override
     Page<Posts> findAll(Pageable pageable);
 
     Page<Posts> findAllByLanguage(String language, Pageable pageable);
 
-    Page<Posts> findAllByUserUserId(Long userId, Pageable pageable);
+    Page<Posts> findAllByUserUserId(int userId, Pageable pageable);
 
     Page<Posts> findAllByProblem_ProblemSite(String problemSite, Pageable pageable);
 

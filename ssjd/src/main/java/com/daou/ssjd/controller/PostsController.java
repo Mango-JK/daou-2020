@@ -44,7 +44,7 @@ public class PostsController {
      * 2. 게시글 수정
      */
     @PutMapping("/posts/{postId}")
-    public ResponseEntity updatePosts(@PathVariable("postId") long postId, @RequestBody PostsUpdateRequestDto requestDto) throws Exception {
+    public ResponseEntity updatePosts(@PathVariable("postId") int postId, @RequestBody PostsUpdateRequestDto requestDto) throws Exception {
         try {
             postsService.updatePost(postId, requestDto);
         } catch (Exception e) {
@@ -57,7 +57,7 @@ public class PostsController {
      * 3. 게시글 삭제
      */
     @DeleteMapping("/posts/{postId}")
-    public ResponseEntity deletePosts(@PathVariable("postId") long postId) throws Exception {
+    public ResponseEntity deletePosts(@PathVariable("postId") int postId) throws Exception {
         try {
             postsService.deletePost(postId);
         } catch (Exception e) {
@@ -70,7 +70,7 @@ public class PostsController {
      * 4. 게시글 상세 조회
      */
     @GetMapping("/posts/{postId}")
-    public ResponseEntity findOne(@PathVariable("postId") Long postId) {
+    public ResponseEntity findOne(@PathVariable("postId") int postId) {
         Posts dto = postsService.findByPostId(postId).get();
         if (dto == null) {
             return new ResponseEntity(dto, HttpStatus.NOT_EXTENDED);
@@ -142,7 +142,7 @@ public class PostsController {
      * 9. 유저별 게시글 조회
      */
     @GetMapping("/posts/users/{userId}")
-    public ResponseEntity findAllByUser(@PathVariable("userId") Long userId, @RequestParam("pageNum") int pageNum) throws Exception {
+    public ResponseEntity findAllByUser(@PathVariable("userId") int userId, @RequestParam("pageNum") int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
         Page<Posts> result = null;
         try {

@@ -23,7 +23,7 @@ public class Posts extends BaseTimeEntity {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "post_id")
-    private Long postId;
+    private int postId;
 
     @ManyToOne(fetch = EAGER)
     @JoinColumn(name = "user_id")
@@ -44,11 +44,9 @@ public class Posts extends BaseTimeEntity {
     private String title;
 
     @Column(name = "content")
-    @Lob
     private String content;
 
     @Column(name = "code")
-    @Lob
     private String code;
 
     @Builder
