@@ -1,6 +1,5 @@
 package com.daou.ssjd.domain.entity;
 
-import lombok.AccessLevel;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -18,22 +17,22 @@ public class Problems {
     @Id
     @GeneratedValue(strategy = IDENTITY)
     @Column(name = "problem_id")
-    private Long problemId;
+    private int problemId;
 
     @Column(name = "problem_link")
     private String problemLink;
 
-    @Column(name = "problem_type")
-    private String problemType;
+    @Column(name = "problem_site")
+    private String problemSite;
 
     @Column(name = "problem_title")
     private String problemTitle;
 
     @Builder
-    public Problems(String problemLink, String problemType, String problemTitle) {
+    public Problems(String problemLink, String problemSite, String problemTitle) {
         this.problemLink = problemLink;
         this.problemTitle = problemTitle;
-        this.problemType = problemType;
+        this.problemSite = problemSite;
     }
 
 }
