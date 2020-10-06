@@ -10,6 +10,12 @@
   <component name="ChangeListManager">
     <list default="true" id="3f589253-68bf-4d3c-9ca7-2dda09ce1299" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
+      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/SsjdApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/SsjdApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/UsersController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/dto/UsersUpdateRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/dto/UsersUpdateRequestDto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/interceptor/JwtInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/interceptor/JwtInterceptor.java" afterDir="false" />
+=======
       <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/ChatsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/ChatsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/PostsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/PostsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/entity/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/entity/Messages.java" afterDir="false" />
@@ -19,6 +25,7 @@
       <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/ChatsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/ChatsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/PostsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/PostsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ssjd/src/test/java/com/daou/ssjd/service/PostsServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/test/java/com/daou/ssjd/service/PostsServiceTest.java" afterDir="false" />
+>>>>>>> posts
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -375,6 +382,50 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="577" y="167" key="FileChooserDialogImpl/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601021313801" />
+<<<<<<< HEAD
+    <state width="1493" height="234" key="GridCell.Tab.0.bottom" timestamp="1601872617520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="234" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601872617520" />
+    <state width="1493" height="160" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1601810024685" />
+    <state width="1493" height="234" key="GridCell.Tab.0.center" timestamp="1601872617520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="234" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601872617520" />
+    <state width="1493" height="160" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1601810024685" />
+    <state width="1493" height="234" key="GridCell.Tab.0.left" timestamp="1601872617519">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="234" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601872617519" />
+    <state width="1493" height="160" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1601810024685" />
+    <state width="1493" height="234" key="GridCell.Tab.0.right" timestamp="1601872617520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="234" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601872617520" />
+    <state width="1493" height="160" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1601810024685" />
+    <state width="1493" height="234" key="GridCell.Tab.1.bottom" timestamp="1601872617521">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="234" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601872617521" />
+    <state width="1493" height="250" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1601809912633" />
+    <state width="1493" height="234" key="GridCell.Tab.1.center" timestamp="1601872617520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="234" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601872617520" />
+    <state width="1493" height="250" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1601809912633" />
+    <state width="1493" height="234" key="GridCell.Tab.1.left" timestamp="1601872617520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="234" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601872617520" />
+    <state width="1493" height="250" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1601809912633" />
+    <state width="1493" height="234" key="GridCell.Tab.1.right" timestamp="1601872617520">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="234" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601872617520" />
+    <state width="1493" height="250" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1601809912633" />
+    <state x="277" y="0" key="SettingsEditor" timestamp="1601260348544">
+      <screen x="0" y="0" width="1536" height="824" />
+=======
     <state x="577" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1601733219234" />
     <state width="1494" height="364" key="GridCell.Tab.0.bottom" timestamp="1601879746260">
       <screen x="1920" y="0" width="1920" height="1040" />
@@ -434,6 +485,7 @@
     <state width="1160" height="296" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1601857702777" />
     <state x="2458" y="90" key="SettingsEditor" timestamp="1601873131338">
       <screen x="1920" y="0" width="1920" height="1040" />
+>>>>>>> posts
     </state>
     <state x="277" y="0" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@0.0.1536.824" timestamp="1601260348544" />
     <state x="2458" y="90" key="SettingsEditor/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1601873131338" />

@@ -63,7 +63,7 @@ public class UsersService {
      */
     public Users findById(long userId){
         Users user = usersRepository.findByUserId(userId);
-        return usersRepository.save(user);
+        return user;
     }
 
     /**
