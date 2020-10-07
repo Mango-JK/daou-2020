@@ -33,7 +33,9 @@ repositories {
 dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
+	implementation 'org.springframework.boot:spring-boot-starter-websocket'
 	compileOnly 'org.projectlombok:lombok'
+	annotationProcessor 'org.springframework.boot:spring-boot-configuration-processor'
 	annotationProcessor 'org.projectlombok:lombok'
 	testImplementation('org.springframework.boot:spring-boot-starter-test') {
 		exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
@@ -49,9 +51,10 @@ dependencies {
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
 
+
 def querydslDir = 'src/main/generated'
 querydsl {
-	library = "com.querydsl:querydsl-apt"
+	library = "com.querydsl:querydsl-apt:4.2.1"
 	jpa = true
 	querydslSourcesDir = querydslDir
 }

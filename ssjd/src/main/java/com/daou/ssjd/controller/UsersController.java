@@ -2,6 +2,7 @@ package com.daou.ssjd.controller;
 
 import com.daou.ssjd.domain.entity.Users;
 import com.daou.ssjd.dto.UsersRequestDto;
+import com.daou.ssjd.dto.UsersUpdateRequestDto;
 import com.daou.ssjd.service.JwtService;
 import com.daou.ssjd.service.UsersService;
 import io.swagger.annotations.Api;
@@ -59,5 +60,46 @@ public class UsersController {
             status = HttpStatus.INTERNAL_SERVER_ERROR;
         }
         return new ResponseEntity<Map<String, Object>>(resultMap, status);
+    }
+
+    /**
+     * 3. 닉네임 변경
+     */
+    @PutMapping("/users/nickname")
+    public ResponseEntity<Map<String, Object>> changeNickname(
+            @Valid @RequestBody UsersUpdateRequestDto usersUpdateRequestDto) {
+        Map<String, Object> resultMap = new HashMap<>();
+        HttpStatus status = null;
+
+        try {
+            // 비밀번호가 변경된 user의 정보
+            Users nicknameChangedUser = usersService.changeNickname(usersUpdateRequestDto);
+
+            String token = jwtService.create(nicknameChangedUser);
+
+            resultMap.put("auth_token", token);
+            resultMap.put("status", true);
+            resultMap.put("data", nicknameChangedUser);
+            status = HttpStatus.ACCEPTED;
+        } catch (Exception e) {
+            log.error("중복 닉네임", e);
+            resultMap.put("message", e.getMessage());
+            status = HttpStatus.BAD_REQUEST;
+        }
+        return new ResponseEntity<Map<String, Object>>(resultMap, status);
+    }
+
+    /**
+     * 4. 비밀번호 변경
+     */
+    @PutMapping("/users/password")
+    public ResponseEntity changePassword(@Valid @RequestBody UsersRequestDto usersRequestDto) {
+        try{
+            usersService.changePassword(usersRequestDto);
+        } catch (Exception e) {
+            log.error("닉네임 변경 실패", e);
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity(HttpStatus.OK);
     }
 }

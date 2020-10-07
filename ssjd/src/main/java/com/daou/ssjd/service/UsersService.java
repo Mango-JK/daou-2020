@@ -3,6 +3,7 @@ package com.daou.ssjd.service;
 import com.daou.ssjd.domain.entity.Users;
 import com.daou.ssjd.domain.repository.UsersRepository;
 import com.daou.ssjd.dto.UsersRequestDto;
+import com.daou.ssjd.dto.UsersUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -60,9 +61,41 @@ public class UsersService {
     /**
      * 5. id로 유저 찾기
      */
-    public Users findById(long userId){
+    public Users findById(int userId){
         Users user = usersRepository.findByUserId(userId);
-        return usersRepository.save(user);
+        return user;
+    }
+
+    /**
+     * 6. 비밀번호 변경
+     */
+    public Users changePassword(UsersRequestDto usersRequestDto) {
+        Users user = usersRepository.findByNickname(usersRequestDto.getNickname()).get();
+        user.updatePassword(usersRequestDto.getPassword());
+        return user;
+    }
+
+    /**
+     * 7. 닉네임 변경
+     */
+    public Users changeNickname(UsersUpdateRequestDto usersUpdateRequestDto) {
+        Users user = usersRepository.findByNickname(usersUpdateRequestDto.getNickname()).get();
+        UsersRequestDto chkUser = UsersRequestDto.builder()
+                .nickname(usersUpdateRequestDto.getNewNickname())
+                .password("dummyPassword")
+                .build();
+        validateDuplicateUser(chkUser);
+        user.updateNickname(usersUpdateRequestDto.getNewNickname());
+        return user;
+    }
+
+    /**
+     * 8. 유저 삭제
+     */
+    public Users deleteUser(String nickname) {
+        Users deleteTargetUser = usersRepository.findByNickname(nickname).get();
+        usersRepository.delete(deleteTargetUser);
+        return deleteTargetUser;
     }
 
 }

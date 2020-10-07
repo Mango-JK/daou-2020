@@ -26,13 +26,20 @@ public class JwtInterceptor implements HandlerInterceptor {
             return true;
         } else {
             // req의 헤더 중 auth_token을 찾음
-            String token = request.getHeader("jwt-auth-token");
+            String token = request.getHeader("Authorization");
+
+            String[] bearerChk = token.split(" ");
+            if (bearerChk[0].equals("Bearer")) token = bearerChk[1];
+
             if (token != null && token.length() > 0) {
                 // 유효하면 진행, 아니면 예외 던짐
+                log.info(token);
                 jwtService.checkValid(token);
                 log.trace("유효한 토큰: {}", token);
                 return true;
             } else {
+                log.error("토큰 에러");
+                log.error(token);
                 throw new RuntimeException("인증 토큰이 없습니다.");
             }
         }

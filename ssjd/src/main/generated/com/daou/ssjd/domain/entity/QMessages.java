@@ -26,7 +26,7 @@ public class QMessages extends EntityPathBase<Messages> {
 
     public final DateTimePath<java.time.LocalDateTime> createdDate = createDateTime("createdDate", java.time.LocalDateTime.class);
 
-    public final NumberPath<Long> messageId = createNumber("messageId", Long.class);
+    public final NumberPath<Integer> messageId = createNumber("messageId", Integer.class);
 
     public final QPosts posts;
 
