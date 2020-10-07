@@ -15,11 +15,11 @@ public class ProblemsService {
         return problemsRepository.save(problems);
     }
 
-    public Problems findByProblemId(long problemId) {
+    public Problems findByProblemId(int problemId) {
         return problemsRepository.findByProblemId(problemId);
     }
 
-    public void deleteProblem(long problemId) {
+    public void deleteProblem(int problemId) {
         Problems targetProblem = findByProblemId(problemId);
         problemsRepository.delete(targetProblem);
     }

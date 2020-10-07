@@ -38,7 +38,7 @@ public class QPosts extends EntityPathBase<Posts> {
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modifiedDate = _super.modifiedDate;
 
-    public final NumberPath<Long> postId = createNumber("postId", Long.class);
+    public final NumberPath<Integer> postId = createNumber("postId", Integer.class);
 
     public final QProblems problem;
 
