@@ -1,6 +1,7 @@
 package com.daou.ssjd.domain.repository;
 
 import com.daou.ssjd.domain.entity.Posts;
+import com.daou.ssjd.domain.entity.Users;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -24,4 +25,5 @@ public interface PostsRepository extends JpaRepository<Posts, Integer>, PostsRep
 
     Page<Posts> findAllByLanguageAndProblem_ProblemSite(String language, String problemSite, Pageable pageable);
 
+    Long countPostsByUserUserIdEquals(int userId);
 }

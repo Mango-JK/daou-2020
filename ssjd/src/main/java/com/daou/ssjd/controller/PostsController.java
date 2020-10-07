@@ -6,6 +6,7 @@ import com.daou.ssjd.dto.PostsSaveRequestDto;
 import com.daou.ssjd.dto.PostsUpdateRequestDto;
 import com.daou.ssjd.service.PostsService;
 import io.swagger.annotations.Api;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.data.domain.Page;
@@ -185,5 +186,19 @@ public class PostsController {
             return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity(result.getContent(), HttpStatus.OK);
+    }
+
+    /**
+     * 12. 유저의 게시글 수 확인
+     */
+    @GetMapping("posts/number/{userId}")
+    public ResponseEntity countPostsByUserId(@PathVariable("userId") int userId) {
+        Long postCounts = 0L;
+        try {
+            postCounts = postsService.countById(userId);
+        } catch (Exception e) {
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
+        }
+        return new ResponseEntity(postCounts, HttpStatus.OK);
     }
 }

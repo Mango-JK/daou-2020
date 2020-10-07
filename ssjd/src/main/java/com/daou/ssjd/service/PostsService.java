@@ -132,4 +132,12 @@ public class PostsService {
         }
         return postsRepository.searchAllByPlatform(language, problemSite, keyword, pageRequest);
     }
+
+    /**
+     * 12. 유저의 게시글 수 확인
+     */
+    @Transactional(readOnly = true)
+    public Long countById(int userId) {
+        return postsRepository.countPostsByUserUserIdEquals(userId);
+    }
 }
