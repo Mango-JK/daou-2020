@@ -9,6 +9,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 import java.util.Optional;
 
 @Transactional
@@ -20,7 +21,7 @@ public class ChatsService {
     private final UsersService usersService;
 
     @Transactional
-    public Messages sendMessage(long postId, ChatsSendRequestDto responseDto) {
+    public Messages sendMessage(int postId, ChatsSendRequestDto responseDto) {
         Users user = usersService.findById(responseDto.getUserId());
         Optional<Posts> post = postsService.findByPostId(postId);
 
@@ -30,5 +31,9 @@ public class ChatsService {
                 .content(responseDto.getContent())
                 .build()
         );
+    }
+
+    public List<Messages> findByPostId(int postId) {
+        return messagesRepository.findAllByPostsPostId(postId).orElse(null);
     }
 }

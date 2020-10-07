@@ -61,9 +61,9 @@ public class UsersService {
     /**
      * 5. id로 유저 찾기
      */
-    public Users findById(long userId){
+    public Users findById(int userId){
         Users user = usersRepository.findByUserId(userId);
-        return usersRepository.save(user);
+        return user;
     }
 
     /**

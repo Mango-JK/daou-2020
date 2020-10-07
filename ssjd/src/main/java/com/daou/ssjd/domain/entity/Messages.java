@@ -1,6 +1,6 @@
 package com.daou.ssjd.domain.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 import javax.persistence.*;
 import java.time.LocalDateTime;
 
+import static javax.persistence.FetchType.EAGER;
 import static javax.persistence.FetchType.LAZY;
 import static javax.persistence.GenerationType.IDENTITY;
 
@@ -19,18 +20,17 @@ public class Messages{
 
     @Id @GeneratedValue(strategy = IDENTITY)
     @Column(name = "message_id")
-    private Long messageId;
+    private int messageId;
 
-    @ManyToOne(fetch = LAZY)
+    @ManyToOne(fetch = EAGER)
     @JoinColumn(name = "user_id")
     private Users users;
 
-    @JsonBackReference
+    @JsonIgnore
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "post_id")
     private Posts posts;
 
-    @Lob
     @Column(name = "content")
     private String content;
 

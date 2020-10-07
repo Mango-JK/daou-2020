@@ -15,7 +15,7 @@ import java.util.Map;
 public class JwtService {
     
     private String salt;
-    private Long expireMin = 3600L;
+    private Long expireMin = 30L;
 
     public void setSalt(String salt) {
         this.salt = salt;

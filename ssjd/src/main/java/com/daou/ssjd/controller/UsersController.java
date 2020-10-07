@@ -72,9 +72,12 @@ public class UsersController {
         HttpStatus status = null;
 
         try {
-            // 비밀번호가 변경괸 user의 정보
+            // 비밀번호가 변경된 user의 정보
             Users nicknameChangedUser = usersService.changeNickname(usersUpdateRequestDto);
 
+            String token = jwtService.create(nicknameChangedUser);
+
+            resultMap.put("auth_token", token);
             resultMap.put("status", true);
             resultMap.put("data", nicknameChangedUser);
             status = HttpStatus.ACCEPTED;
@@ -89,7 +92,7 @@ public class UsersController {
     /**
      * 4. 비밀번호 변경
      */
-    @PutMapping("/users")
+    @PutMapping("/users/password")
     public ResponseEntity changePassword(@Valid @RequestBody UsersRequestDto usersRequestDto) {
         try{
             usersService.changePassword(usersRequestDto);

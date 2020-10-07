@@ -25,7 +25,8 @@ public class SsjdApplication implements WebMvcConfigurer {
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(jwtInterceptor).addPathPatterns("/api/**")
-				.excludePathPatterns(Arrays.asList("/api/user/**"))
+				.excludePathPatterns("/api/users")
+				.excludePathPatterns("/api/users/login")
 				.excludePathPatterns(Arrays.asList("/api/posts/**"))
 				.excludePathPatterns(Arrays.asList("/api/chats/**"));
 	}
