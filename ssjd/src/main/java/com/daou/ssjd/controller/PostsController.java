@@ -33,12 +33,13 @@ public class PostsController {
      */
     @PostMapping("/posts")
     public ResponseEntity savePosts(@RequestBody PostsSaveRequestDto requestDto) throws Exception {
+        PostsResponseDto result = null;
         try {
-            PostsResponseDto responseDto = new PostsResponseDto(postsService.savePost(requestDto));
+            result = new PostsResponseDto(postsService.savePost(requestDto));
         } catch (Exception e) {
-            return new ResponseEntity(requestDto, HttpStatus.BAD_REQUEST);
+            return new ResponseEntity(HttpStatus.BAD_REQUEST);
         }
-        return new ResponseEntity(requestDto, HttpStatus.OK);
+        return new ResponseEntity(result, HttpStatus.OK);
     }
 
     /**
@@ -64,7 +65,7 @@ public class PostsController {
         } catch (Exception e) {
             return new ResponseEntity(HttpStatus.FORBIDDEN);
         }
-        return new ResponseEntity(HttpStatus.OK);
+        return new ResponseEntity(postId, HttpStatus.OK);
     }
 
     /**
@@ -74,7 +75,7 @@ public class PostsController {
     public ResponseEntity findOne(@PathVariable("postId") int postId) {
         Posts dto = postsService.findByPostId(postId).get();
         if (dto == null) {
-            return new ResponseEntity(dto, HttpStatus.NOT_EXTENDED);
+            return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity(dto, HttpStatus.OK);
     }
@@ -97,7 +98,7 @@ public class PostsController {
     /**
      * 6. 언어별 게시글 조회
      */
-    @GetMapping("/posts/platform/{language}")
+    @GetMapping("/posts/language/{language}")
     public ResponseEntity findAllByLanguage(@PathVariable("language") String language, @RequestParam("pageNum") int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
         Page<Posts> result = null;
@@ -112,7 +113,7 @@ public class PostsController {
     /**
      * 7. 플랫폼별 게시글 조회
      */
-    @GetMapping("/posts/problems/{problemSite}")
+    @GetMapping("/posts/problem/{problemSite}")
     public ResponseEntity findAllByPlatform(@PathVariable("problemSite") String problemSite, @RequestParam("pageNum") int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
         Page<Posts> result = null;
@@ -127,7 +128,7 @@ public class PostsController {
     /**
      * 8. 언어 + 플랫폼별 게시글 조회
      */
-    @GetMapping("/posts/platform/language")
+    @GetMapping("/posts/problem/language")
     public ResponseEntity findAllByPlatformAndLanguage(@RequestParam("language") String language, @RequestParam("problemSite") String problemSite, int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
         Page<Posts> result = null;
@@ -175,7 +176,7 @@ public class PostsController {
     /**
      * 11. 플랫폼별 검색
      */
-    @GetMapping("/posts/search")
+    @GetMapping("/posts/search/problem/language")
     public ResponseEntity searchAllByPlatform(@RequestParam @Nullable String language, @RequestParam @Nullable String problemSite, @RequestParam @Nullable String keyword, @RequestParam int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
         Page<Posts> result = null;
