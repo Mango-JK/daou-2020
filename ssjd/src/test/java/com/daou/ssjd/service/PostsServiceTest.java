@@ -179,10 +179,10 @@ class PostsServiceTest {
                 .build();
 
         // when
-        postsService.savePost(dto);
+        Posts result = postsService.savePost(dto);
 
         // then
-        Posts posts = postsRepository.findAll().get(0);
+        Posts posts = postsRepository.findByPostId(result.getPostId()).get();
         Assertions.assertThat(posts.getLanguage()).isEqualTo("JAVA");
         Assertions.assertThat(posts.getUser().getUserId()).isEqualTo(1);
         Assertions.assertThat(problemsService.findByProblemId(posts.getProblem().getProblemId()).getProblemTitle()).isEqualTo("뱀");
