@@ -34,6 +34,6 @@ public class ChatsService {
     }
 
     public List<Messages> findByPostId(int postId) {
-        return messagesRepository.findAllByPostsPostId(postId).get();
+        return messagesRepository.findAllByPostsPostId(postId).orElse(null);
     }
 }
