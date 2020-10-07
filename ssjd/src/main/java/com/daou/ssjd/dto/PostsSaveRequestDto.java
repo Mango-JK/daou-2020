@@ -12,23 +12,21 @@ import javax.persistence.Lob;
 public class PostsSaveRequestDto {
 
     @NotNull
-    private Long userId;
+    private int userId;
     private String problemLink;
-    private String problemType;
+    private String problemSite;
     private String problemTitle;
     private String language;
     private String title;
-    @Lob
     private String content;
-    @Lob
     private String code;
 
     @Builder
-    public PostsSaveRequestDto(Long userId, String problemLink, String problemType, String problemTitle,
+    public PostsSaveRequestDto(int userId, String problemLink, String problemSite, String problemTitle,
                                String language, String title, String content, String code) {
         this.userId = userId;
         this.problemLink = problemLink;
-        this.problemType = problemType;
+        this.problemSite = problemSite;
         this.problemTitle = problemTitle;
         this.language = language;
         this.title = title;

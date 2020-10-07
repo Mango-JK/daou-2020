@@ -12,15 +12,13 @@ import java.util.List;
 
 @Getter
 public class PostsResponseDto {
-    private Long postId;
+    private int postId;
     private Users user;
     private String language;
     private Problems problem;
     private List<Messages> messages = new ArrayList<>();
     private String title;
-    @Lob
     private String content;
-    @Lob
     private String code;
 
     public PostsResponseDto(Posts entity) {

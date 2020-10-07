@@ -6,7 +6,7 @@
 
 <hr/>
 
-<center><img src="./images/main.png"><center>
+<center><img src="./images/main.PNG"><center>
 
 
 
@@ -14,7 +14,7 @@
 
 
 
-<center><img src="./images/skills.png"><center>
+<center><img src="./images/skills.PNG"><center>
 
 <br/>
 
@@ -83,7 +83,7 @@
 
 
 
-<center><img src="./images/erd.png"><center>
+<center><img src="./images/erd.PNG"><center>
 
 <br/>
 
@@ -91,7 +91,7 @@
 
 ## 시스템 아키텍처
 
-<center><img src="./images/architecture.png"><center>
+<center><img src="./images/architecture.PNG"><center>
 
 <br/>
 
