@@ -1,6 +1,8 @@
 package com.daou.ssjd.controller;
 
 import com.daou.ssjd.domain.entity.Messages;
+import com.daou.ssjd.domain.entity.Posts;
+import com.daou.ssjd.domain.entity.Users;
 import com.daou.ssjd.dto.ChatsSendRequestDto;
 import com.daou.ssjd.service.ChatsService;
 import io.swagger.annotations.Api;
@@ -23,7 +25,6 @@ import java.util.List;
 @Slf4j
 @Api(tags = "chats")
 @RequiredArgsConstructor
-//@RequestMapping("/api/")
 @RestController
 public class ChatsController {
 
@@ -32,7 +33,8 @@ public class ChatsController {
     /**
      * 1. 메시지 보내기
      */
-    @MessageMapping("/send/{postId}")
+    //RequestMapping과는 상관없다 (/api/send/{postId}로 메시지 받음)
+    @MessageMapping("/chats/{postId}")
     @SendTo("/sub/receive/{postId}")
     public Messages sendMessages(@DestinationVariable("postId") int postId, ChatsSendRequestDto requestDto){
         log.info(requestDto.getUserId()+"/" + requestDto.getContent());
@@ -51,6 +53,16 @@ public class ChatsController {
             return new ResponseEntity(HttpStatus.NOT_FOUND);
         }
         return new ResponseEntity(messagesList, HttpStatus.OK);
+    }
+
+    /**
+     * 3. 메시지 보내기
+     */
+    @MessageMapping("/chats/join/{postId}")
+    @SendTo("/sub/join/{postId}")
+    public long joinChatRoom(@DestinationVariable("postId") long postId, ChatsSendRequestDto requestDto){
+        log.info(requestDto.getUserId()+"/" + requestDto.getContent());
+        return requestDto.getUserId();
     }
 
 }
