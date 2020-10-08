@@ -22,7 +22,7 @@ public class QPosts extends EntityPathBase<Posts> {
 
     public static final QPosts posts = new QPosts("posts");
 
-    public final QBaseTimeEntity _super = new QBaseTimeEntity(this);
+    public final com.daou.ssjd.domain.entity.QBaseTimeEntity _super = new com.daou.ssjd.domain.entity.QBaseTimeEntity(this);
 
     public final StringPath code = createString("code");
 
@@ -33,18 +33,18 @@ public class QPosts extends EntityPathBase<Posts> {
 
     public final StringPath language = createString("language");
 
-    public final ListPath<Messages, QMessages> messages = this.<Messages, QMessages>createList("messages", Messages.class, QMessages.class, PathInits.DIRECT2);
+    public final ListPath<Messages, com.daou.ssjd.domain.entity.QMessages> messages = this.<Messages, com.daou.ssjd.domain.entity.QMessages>createList("messages", Messages.class, com.daou.ssjd.domain.entity.QMessages.class, PathInits.DIRECT2);
 
     //inherited
     public final DateTimePath<java.time.LocalDateTime> modifiedDate = _super.modifiedDate;
 
     public final NumberPath<Integer> postId = createNumber("postId", Integer.class);
 
-    public final QProblems problem;
+    public final com.daou.ssjd.domain.entity.QProblems problem;
 
     public final StringPath title = createString("title");
 
-    public final QUsers user;
+    public final com.daou.ssjd.domain.entity.QUsers user;
 
     public QPosts(String variable) {
         this(Posts.class, forVariable(variable), INITS);
@@ -64,8 +64,8 @@ public class QPosts extends EntityPathBase<Posts> {
 
     public QPosts(Class<? extends Posts> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
-        this.problem = inits.isInitialized("problem") ? new QProblems(forProperty("problem")) : null;
-        this.user = inits.isInitialized("user") ? new QUsers(forProperty("user")) : null;
+        this.problem = inits.isInitialized("problem") ? new com.daou.ssjd.domain.entity.QProblems(forProperty("problem")) : null;
+        this.user = inits.isInitialized("user") ? new com.daou.ssjd.domain.entity.QUsers(forProperty("user")) : null;
     }
 
 }
