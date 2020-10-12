@@ -48,7 +48,7 @@ public class PostsService {
      */
     @Transactional
     public void updatePost(int postId, PostsUpdateRequestDto requestDto) {
-        Posts post = postsRepository.findByPostId(postId).get();
+        Posts post = postsRepository.findById(postId).get();
         int deletedProblem = post.getProblem().getProblemId();
         Problems problem = new Problems(requestDto.getProblemLink(), requestDto.getProblemSite(), requestDto.getProblemTitle());
         post.update(post.getUser(), problem, requestDto.getLanguage(), requestDto.getTitle(),
@@ -61,7 +61,7 @@ public class PostsService {
      */
     @Transactional
     public void deletePost(int postId) {
-        Posts deleteTargetPost = postsRepository.findByPostId(postId).get();
+        Posts deleteTargetPost = postsRepository.findById(postId).get();
         postsRepository.delete(deleteTargetPost);
     }
 
@@ -69,7 +69,7 @@ public class PostsService {
      * 4. 게시글 상세 조회
      */
     public Optional<Posts> findByPostId(int postId) {
-        return postsRepository.findByPostId(postId);
+        return postsRepository.findById(postId);
     }
 
     /**
