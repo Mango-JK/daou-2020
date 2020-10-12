@@ -6,7 +6,6 @@ import com.daou.ssjd.domain.entity.Problems;
 import com.daou.ssjd.domain.entity.Users;
 import lombok.Getter;
 
-import javax.persistence.Lob;
 import java.util.ArrayList;
 import java.util.List;
 
