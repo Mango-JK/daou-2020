@@ -12,8 +12,6 @@ import java.util.Optional;
 @Repository
 public interface PostsRepository extends JpaRepository<Posts, Integer>, PostsRepositoryCustom {
 
-    Optional<Posts> findByPostId(int postId);
-
     @Override
     Page<Posts> findAll(Pageable pageable);
 
