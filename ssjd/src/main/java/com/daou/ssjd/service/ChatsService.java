@@ -27,7 +27,7 @@ public class ChatsService {
 
         return messagesRepository.save(Messages.builder()
                 .user(user)
-                .posts(post.get())
+                .posts(post.orElse(null))
                 .content(responseDto.getContent())
                 .build()
         );
