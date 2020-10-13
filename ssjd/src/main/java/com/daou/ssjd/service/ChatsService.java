@@ -27,13 +27,13 @@ public class ChatsService {
 
         return messagesRepository.save(Messages.builder()
                 .user(user)
-                .posts(post.get())
+                .posts(post.orElse(null))
                 .content(responseDto.getContent())
                 .build()
         );
     }
 
     public List<Messages> findByPostId(int postId) {
-        return messagesRepository.findAllByPostsPostId(postId).get();
+        return messagesRepository.findAllByPostsPostId(postId).orElse(null);
     }
 }
