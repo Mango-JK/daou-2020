@@ -182,7 +182,7 @@ class PostsServiceTest {
         Posts result = postsService.savePost(dto);
 
         // then
-        Posts posts = postsRepository.findByPostId(result.getPostId()).get();
+        Posts posts = postsRepository.findById(result.getPostId()).get();
         Assertions.assertThat(posts.getLanguage()).isEqualTo("JAVA");
         Assertions.assertThat(posts.getUser().getUserId()).isEqualTo(1);
         Assertions.assertThat(problemsService.findByProblemId(posts.getProblem().getProblemId()).getProblemTitle()).isEqualTo("뱀");
@@ -247,7 +247,7 @@ class PostsServiceTest {
         Assertions.assertThat(post).isNotNull();
         Assertions.assertThat(problem).isNotNull();
         postsService.deletePost(savePost.getPostId());
-        Assertions.assertThat(postsRepository.findByPostId(savePost.getPostId())).isEmpty();
+        Assertions.assertThat(postsRepository.findById(savePost.getPostId())).isEmpty();
     }
 
     /**

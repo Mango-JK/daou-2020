@@ -2,7 +2,6 @@ package com.daou.ssjd.interceptor;
 
 import com.daou.ssjd.service.JwtService;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
@@ -13,8 +12,11 @@ import javax.servlet.http.HttpServletResponse;
 @Slf4j
 public class JwtInterceptor implements HandlerInterceptor {
 
-    @Autowired
-    private JwtService jwtService;
+    private final JwtService jwtService;
+
+    public JwtInterceptor(JwtService jwtService) {
+        this.jwtService = jwtService;
+    }
 
     // CSRF referer 검증
     private final String aceeptDomain = "http://localhost:8080/";

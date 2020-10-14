@@ -2,6 +2,7 @@ package com.daou.ssjd.controller;
 
 import com.daou.ssjd.domain.entity.Users;
 import com.daou.ssjd.dto.UsersRequestDto;
+import com.daou.ssjd.dto.UsersSaveRequestDto;
 import com.daou.ssjd.dto.UsersUpdateRequestDto;
 import com.daou.ssjd.service.JwtService;
 import com.daou.ssjd.service.UsersService;
@@ -30,7 +31,7 @@ public class UsersController {
     * 1. 회원가입
      */
     @PostMapping("/users")
-    public Users saveUsers(@RequestBody UsersRequestDto usersRequestDto) { return usersService.saveUser(usersRequestDto); }
+    public Users saveUsers(@RequestBody UsersSaveRequestDto usersSaveRequestDto) { return usersService.saveUser(usersSaveRequestDto); }
 
     /**
      * 2. 로그인
@@ -63,7 +64,28 @@ public class UsersController {
     }
 
     /**
-     * 3. 닉네임 변경
+     * 3. 솔트 요청
+     */
+    @GetMapping("/users/salt/{nickname}")
+    public ResponseEntity<Map<String, Object>> getUserSalt(@PathVariable("nickname") String nickname) {
+        Map<String, Object> resultMap = new HashMap<>();
+        HttpStatus status = null;
+
+        try {
+            Users user = usersService.findByNickname(nickname).get();
+
+            resultMap.put("userSalt", user.getSalt());
+            status = HttpStatus.ACCEPTED;
+        } catch (RuntimeException e) {
+            log.error("salt return 실패", e);
+            resultMap.put("message", e.getMessage());
+            status = HttpStatus.INTERNAL_SERVER_ERROR;
+        }
+        return new ResponseEntity<Map<String, Object>>(resultMap, status);
+    }
+
+    /**
+     * 4. 닉네임 변경
      */
     @PutMapping("/users/nickname")
     public ResponseEntity<Map<String, Object>> changeNickname(
@@ -90,7 +112,7 @@ public class UsersController {
     }
 
     /**
-     * 4. 비밀번호 변경
+     * 5. 비밀번호 변경
      */
     @PutMapping("/users/password")
     public ResponseEntity changePassword(@Valid @RequestBody UsersRequestDto usersRequestDto) {
