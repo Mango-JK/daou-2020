@@ -3,6 +3,7 @@ package com.daou.ssjd.service;
 import com.daou.ssjd.domain.entity.Users;
 import com.daou.ssjd.domain.repository.UsersRepository;
 import com.daou.ssjd.dto.UsersRequestDto;
+import com.daou.ssjd.dto.UsersSaveRequestDto;
 import com.daou.ssjd.dto.UsersUpdateRequestDto;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -20,11 +21,12 @@ public class UsersService {
     /**
      * 1. 유저 회원 가입
      */
-    public Users saveUser(UsersRequestDto usersRequestDto) {
-        validateDuplicateUser(usersRequestDto);
+    public Users saveUser(UsersSaveRequestDto usersSaveRequestDto) {
+        validateDuplicateUser(usersSaveRequestDto);
         return usersRepository.save(Users.builder()
-                .nickname(usersRequestDto.getNickname())
-                .password(usersRequestDto.getPassword())
+                .nickname(usersSaveRequestDto.getNickname())
+                .password(usersSaveRequestDto.getPassword())
+                .salt(usersSaveRequestDto.getSalt())
                 .build()
         );
     }
@@ -32,8 +34,8 @@ public class UsersService {
     /**
      * 2. 중복 검사
      */
-    private void validateDuplicateUser(UsersRequestDto usersRequestDto) {
-        usersRepository.findByNickname(usersRequestDto.getNickname())
+    private void validateDuplicateUser(UsersSaveRequestDto usersSaveRequestDto) {
+        usersRepository.findByNickname(usersSaveRequestDto.getNickname())
                 .ifPresent(m -> {
                     throw new IllegalStateException("이미 존재하는 회원입니다.");
                 });
@@ -80,9 +82,10 @@ public class UsersService {
      */
     public Users changeNickname(UsersUpdateRequestDto usersUpdateRequestDto) {
         Users user = usersRepository.findByNickname(usersUpdateRequestDto.getNickname()).get();
-        UsersRequestDto chkUser = UsersRequestDto.builder()
+        UsersSaveRequestDto chkUser = UsersSaveRequestDto.builder()
                 .nickname(usersUpdateRequestDto.getNewNickname())
                 .password("dummyPassword")
+                .salt("dummySalt")
                 .build();
         validateDuplicateUser(chkUser);
         user.updateNickname(usersUpdateRequestDto.getNewNickname());
