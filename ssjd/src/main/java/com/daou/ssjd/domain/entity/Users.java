@@ -26,10 +26,14 @@ public class Users{
     @Column(name = "password")
     private String password;
 
+    @Column(name = "salt")
+    private String salt;
+
     @Builder
-    public Users(String nickname, String password) {
+    public Users(String nickname, String password, String salt) {
         this.nickname = nickname;
         this.password = password;
+        this.salt = salt;
     }
 
     public void updateNickname(String nickname) {

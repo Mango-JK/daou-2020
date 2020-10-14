@@ -2,6 +2,7 @@ package com.daou.ssjd.service;
 
 import com.daou.ssjd.domain.entity.Users;
 import com.daou.ssjd.dto.UsersRequestDto;
+import com.daou.ssjd.dto.UsersSaveRequestDto;
 import com.daou.ssjd.dto.UsersUpdateRequestDto;
 import org.junit.jupiter.api.Test;
 import org.junit.runner.RunWith;
@@ -27,24 +28,25 @@ class UsersServiceTest {
     @Test
     void 회원가입() {
         // given
-        UsersRequestDto usersRequestDto = UsersRequestDto.builder()
+        UsersSaveRequestDto usersSaveRequestDto = UsersSaveRequestDto.builder()
                 .nickname("ssjd")
                 .password("example")
+                .salt("salt")
                 .build();
 
         // when
-        Users savedUser = usersService.saveUser(usersRequestDto);
+        Users savedUser = usersService.saveUser(usersSaveRequestDto);
 
         // then
         Users findUser = usersService.findByNickname(savedUser.getNickname()).get();
-        assertThat(usersRequestDto.getNickname()).isEqualTo(findUser.getNickname());
+        assertThat(usersSaveRequestDto.getNickname()).isEqualTo(findUser.getNickname());
     }
 
     @Test
     void 중복_회원_예외() {
         // given
-        UsersRequestDto user1 = new UsersRequestDto("dupTest", "");
-        UsersRequestDto user2 = new UsersRequestDto("dupTest", "");
+        UsersSaveRequestDto user1 = new UsersSaveRequestDto("dupTest", "", "");
+        UsersSaveRequestDto user2 = new UsersSaveRequestDto("dupTest", "", "");
 
         // when
         usersService.saveUser(user1);
@@ -57,7 +59,7 @@ class UsersServiceTest {
     @Test
     void 로그인() {
         // given
-        UsersRequestDto givenUser = new UsersRequestDto("loginTest", "testPassword");
+        UsersSaveRequestDto givenUser = new UsersSaveRequestDto("loginTest", "testPassword", "testSalt");
         UsersRequestDto loginUser = new UsersRequestDto("loginTest", "testPassword");
 
         // when
@@ -72,7 +74,7 @@ class UsersServiceTest {
     @Test
     void 비밀번호_불일치_예외() {
         // given
-        UsersRequestDto givenUser = new UsersRequestDto("givenUser", "givenPassword");
+        UsersSaveRequestDto givenUser = new UsersSaveRequestDto("givenUser", "givenPassword", "givenSalt");
         UsersRequestDto testUser = new UsersRequestDto("givenUser", "notEqualPassword");
 
         // when
@@ -98,9 +100,10 @@ class UsersServiceTest {
     @Test
     void 비밀번호_변경() {
         // given
-        UsersRequestDto testUser = UsersRequestDto.builder()
+        UsersSaveRequestDto testUser = UsersSaveRequestDto.builder()
                 .nickname("testUser")
                 .password("testPassword")
+                .salt("testSalt")
                 .build();
         UsersRequestDto changePasswordUser = UsersRequestDto.builder()
                 .nickname("testUser")
@@ -119,9 +122,10 @@ class UsersServiceTest {
     @Test
     void 닉네임_변경() {
         // given
-        UsersRequestDto testUser = UsersRequestDto.builder()
+        UsersSaveRequestDto testUser = UsersSaveRequestDto.builder()
                 .nickname("testUser")
                 .password("testPassword")
+                .salt("testSalt")
                 .build();
         UsersUpdateRequestDto changeNicknameUser = UsersUpdateRequestDto.builder()
                 .nickname("testUser")
@@ -139,13 +143,15 @@ class UsersServiceTest {
     @Test
     void 닉네임_변경_예외() {
         // given
-        UsersRequestDto testUser = UsersRequestDto.builder()
+        UsersSaveRequestDto testUser = UsersSaveRequestDto.builder()
                 .nickname("testUser")
                 .password("testUserPassword")
+                .salt("testSalt")
                 .build();
-        UsersRequestDto existUser = UsersRequestDto.builder()
+        UsersSaveRequestDto existUser = UsersSaveRequestDto.builder()
                 .nickname("existUser")
                 .password("existUserPassword")
+                .salt("existSalt")
                 .build();
         UsersUpdateRequestDto changeNicknameUser = UsersUpdateRequestDto.builder()
                 .nickname("testUser")
