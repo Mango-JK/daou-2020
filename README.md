@@ -24,11 +24,12 @@
 <br/>
 
 <center><img src="./images/posts.PNG"><center>
-
 <br/>
 
 <center><img src="./images/postDetail.PNG"><center>
+<br/>
 
+<center><img src="./images/chatting.png"><center>
 
 
 <hr/>
