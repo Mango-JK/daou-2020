@@ -28,9 +28,6 @@ public class PostsController {
 
     private final PostsService postsService;
 
-    /**
-     * 1. 게시글 등록
-     */
     @PostMapping("/posts")
     public ResponseEntity savePosts(@RequestBody PostsSaveRequestDto requestDto) throws Exception {
         PostsResponseDto result = null;
@@ -42,9 +39,6 @@ public class PostsController {
         return new ResponseEntity(result, HttpStatus.OK);
     }
 
-    /**
-     * 2. 게시글 수정
-     */
     @PutMapping("/posts/{postId}")
     public ResponseEntity updatePosts(@PathVariable("postId") int postId, @RequestBody PostsUpdateRequestDto requestDto) throws Exception {
         try {
@@ -55,9 +49,6 @@ public class PostsController {
         return new ResponseEntity(postsService.findByPostId(postId).get(), HttpStatus.OK);
     }
 
-    /**
-     * 3. 게시글 삭제
-     */
     @DeleteMapping("/posts/{postId}")
     public ResponseEntity deletePosts(@PathVariable("postId") int postId) throws Exception {
         try {
@@ -68,9 +59,6 @@ public class PostsController {
         return new ResponseEntity(postId, HttpStatus.OK);
     }
 
-    /**
-     * 4. 게시글 상세 조회
-     */
     @GetMapping("/posts/{postId}")
     public ResponseEntity findOne(@PathVariable("postId") int postId) {
         Posts dto = postsService.findByPostId(postId).get();
@@ -80,9 +68,6 @@ public class PostsController {
         return new ResponseEntity(dto, HttpStatus.OK);
     }
 
-    /**
-     * 5. 전체 게시글 조회
-     */
     @GetMapping("/posts")
     public ResponseEntity findAllPosts(@RequestParam("pageNum") int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
@@ -95,9 +80,6 @@ public class PostsController {
         return new ResponseEntity<>(result.getContent(), HttpStatus.OK);
     }
 
-    /**
-     * 6. 언어별 게시글 조회
-     */
     @GetMapping("/posts/language/{language}")
     public ResponseEntity findAllByLanguage(@PathVariable("language") String language, @RequestParam("pageNum") int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
@@ -110,9 +92,6 @@ public class PostsController {
         return new ResponseEntity(result.getContent(), HttpStatus.OK);
     }
 
-    /**
-     * 7. 플랫폼별 게시글 조회
-     */
     @GetMapping("/posts/problem/{problemSite}")
     public ResponseEntity findAllByPlatform(@PathVariable("problemSite") String problemSite, @RequestParam("pageNum") int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
@@ -125,9 +104,6 @@ public class PostsController {
         return new ResponseEntity(result.getContent(), HttpStatus.OK);
     }
 
-    /**
-     * 8. 언어 + 플랫폼별 게시글 조회
-     */
     @GetMapping("/posts/problem/language")
     public ResponseEntity findAllByPlatformAndLanguage(@RequestParam("language") String language, @RequestParam("problemSite") String problemSite, int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
@@ -140,9 +116,6 @@ public class PostsController {
         return new ResponseEntity(result.getContent(), HttpStatus.OK);
     }
 
-    /**
-     * 9. 유저별 게시글 조회
-     */
     @GetMapping("/posts/users/{userId}")
     public ResponseEntity findAllByUser(@PathVariable("userId") int userId, @RequestParam("pageNum") int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
@@ -155,9 +128,6 @@ public class PostsController {
         return new ResponseEntity(result.getContent(), HttpStatus.OK);
     }
 
-    /**
-     * 10. 게시글 통합검색
-     */
     @GetMapping("/posts/search/{keyword}")
     public ResponseEntity searchAllPosts(@PathVariable @Nullable String keyword, @RequestParam int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
@@ -173,9 +143,6 @@ public class PostsController {
         return new ResponseEntity(result.getContent(), HttpStatus.OK);
     }
 
-    /**
-     * 11. 플랫폼별 검색
-     */
     @GetMapping("/posts/search/problem/language")
     public ResponseEntity searchAllByPlatform(@RequestParam @Nullable String language, @RequestParam @Nullable String problemSite, @RequestParam @Nullable String keyword, @RequestParam int pageNum) throws Exception {
         PageRequest pageRequest = PageRequest.of(pageNum, 6, Sort.by("modifiedDate").descending());
@@ -189,9 +156,6 @@ public class PostsController {
         return new ResponseEntity(result.getContent(), HttpStatus.OK);
     }
 
-    /**
-     * 12. 유저의 게시글 수 확인
-     */
     @GetMapping("posts/number/{userId}")
     public ResponseEntity countPostsByUserId(@PathVariable("userId") int userId) {
         Long postCounts = 0L;

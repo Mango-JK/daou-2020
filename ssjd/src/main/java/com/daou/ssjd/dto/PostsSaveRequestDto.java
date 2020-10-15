@@ -33,6 +33,4 @@ public class PostsSaveRequestDto {
         this.content = content;
         this.code = code;
     }
-
-
 }
