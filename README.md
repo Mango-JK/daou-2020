@@ -1,4 +1,5 @@
-<center><img src="./images/daou_logo.png"><center>
+<center><img src="./images/daou_logo.png" width="600" height="300"><center>
+
 
 # <center><tab>알려다우</center>
 
@@ -6,90 +7,80 @@
 
 <hr/>
 
-<center><img src="./images/main.PNG"><center>
+## 🚀 기술스택
 
+<center><img src="./images/skill.PNG"><center>
+​    <br/>
 
-
-## <center>기술스택</center>
-
-
-
-<center><img src="./images/skills.PNG"><center>
-
-<br/>
-
-## <center>API 명세서</center>
-
-### User
-
-- 📘**POST** : /users(nickname, password) - 회원 가입
-
-- 📘**POST** : /users/login(nickname, password) - 로그인
-
-- 📗**GET** : /users/logout(nickname) - 로그아웃
-
-- 📘**PUT** : /users(nickname, password, newPassword) - 비밀번호 변경
-
-- 📕**DELETE**: /users/{id} (nickname, password) - 회원 삭제
-
-- 📗**GET** : /users/nickname() - 닉네임 중복 검사
-
-- 📘**PUT** : /users/nickname (nickname) - 닉네임 변경
-
-  <hr/>
-
-### Post
-
-- 📘**POST** : /posts(user_id, problemLink, problemType, problemTitle,
-
-  ​															language, title, content, code) - 게시글 생성
-
-- 📘**PUT** : /posts/{postId, language, source_link, title, content, code} - 게시글 수정
-
-- 📕**DELETE** : /posts/{postId} - 게시글 삭제
-
-
-
-- 📗**GET** : /posts() - 전체 게시글 조회
-- 📗**GET** : /posts/{language}() - 언어별 풀이 조회
-- 📗**GET** : /posts/{sourceType} - 플랫폼별 풀이 조회
-- 📗**GET** : /posts/{userId} - 유저별 풀이 조회
-
-
-
-- 📗**GET** : /posts/{sourceType}/{keyword} - 플랫폼별 풀이 검색
-
-- 📗**GET** : /posts/{language}/{keyword} - 언어별 풀이 검색
-
-- 📗**GET** : /posts/{sourceType}/{keyword} - 플랫폼+언어별 풀이 검색
-
-- 📗**GET** : /posts/{keyword} - 게시글 통합검색 (언어, 타이틀, 컨텐츠)
-
-  
-
-<hr/>
-
-### Chat
-
-- 📗**GET** : /chat/{postId} - 채팅방 입장
-
-- 📘**POST** : /chat/{postId} (userId, message) - 메시지 보내기
+<center><img src="./images/tool.PNG"><center>
+    <br/>
 
 <br/>
 
 <hr/>
 
-## ERD
+<center><img src="./images/mainView.PNG"><center>
+
+<br/>
+
+<center><img src="./images/posts.PNG"><center>
+
+<br/>
+
+<center><img src="./images/postDetail.PNG"><center>
 
 
 
-<center><img src="./images/erd.PNG"><center>
+<hr/>
+
+## 💭 기획의도
+
+
+
+<center><img src="./images/plan.PNG"><center>
 
 <br/>
 
 <hr/>
 
-## 시스템 아키텍처
+## 🚩 서비스 흐름도
+
+
+
+<center><img src="./images/service.PNG"><center>
+
+<br/>
+
+<hr/>
+
+## 📑 API 명세서
+
+
+
+<center><img src="./images/api1.PNG"><center>
+    <center><img src="./images/api2.PNG"><center>
+
+<br/>
+
+<hr/>
+
+## 🎯 비즈니스 로직 테스트
+
+<center><img src="./images/test.PNG"><center>
+
+<br/>
+
+<hr/>
+
+## 👨‍🔧 ERD
+
+<center><img src="./images/erd2.PNG"><center>
+
+<br/>
+
+<hr/>
+
+## 👩‍🔧 시스템 아키텍처
 
 <center><img src="./images/architecture.PNG"><center>
 
@@ -97,23 +88,41 @@
 
 <hr/>
 
-## 팀 구성
+## 🏃 Quick Start
 
-| 이름   | 업무  |
-| ------ | ----- |
-| 이정건 | 90811 |
-| 배민영 | 90813 |
-| 황영준 | 90817 |
+### **Front-end (Vue.js)**
+
+​	1️⃣ **npm install** 명령어를 실행시켜 주세요.
+
+​	2️⃣ **npm run serve** 명령어를 실행시켜 주세요.
+
+​	3️⃣  **index.js** baseUrl을 http://localhost:8080/ 으로 설정해주세요.
+
+<br/>
+
+### **Back-end (Spring boot)**
+
+♻️ https://projectlombok.org/download **lombok**을 다운로드 후, dependency를 추가해주세요.
+
+```
+    <dependency>
+        <groupId>org.projectlombok</groupId>
+        <artifactId>lombok</artifactId>
+        <scope>provided</scope>
+    </dependency>
+```
+
+<br/>
+
+✅ **com.daou.ssjd** 경로에 있는 **SsjdApplication**을 실행시켜주세요.
 
 <br/>
 
 <hr/>
 
-## 업무 분담
+## 👪 팀 구성
 
-| 이름   | 역할        |
-| ------ | ----------- |
-| 이정건 | 게시글 기능 |
-| 배민영 | 채팅 기능   |
-| 황영준 | 회원 기능   |
+
+
+<center><img src="./images/team.PNG"><center>
 

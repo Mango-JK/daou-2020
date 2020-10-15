@@ -10,12 +10,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3f589253-68bf-4d3c-9ca7-2dda09ce1299" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-<<<<<<< HEAD
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/SsjdApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/SsjdApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/UsersController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/UsersController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/dto/UsersUpdateRequestDto.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/dto/UsersUpdateRequestDto.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/interceptor/JwtInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/interceptor/JwtInterceptor.java" afterDir="false" />
-=======
       <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/ChatsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/ChatsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/PostsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/controller/PostsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/entity/Messages.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/domain/entity/Messages.java" afterDir="false" />
@@ -25,7 +19,6 @@
       <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/ChatsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/ChatsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/PostsService.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/main/java/com/daou/ssjd/service/PostsService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/ssjd/src/test/java/com/daou/ssjd/service/PostsServiceTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/ssjd/src/test/java/com/daou/ssjd/service/PostsServiceTest.java" afterDir="false" />
->>>>>>> posts
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

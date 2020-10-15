@@ -19,14 +19,16 @@ public class SsjdApplication implements WebMvcConfigurer {
 		SpringApplication.run(SsjdApplication.class, args);
 	}
 
-	@Autowired
-	private JwtInterceptor jwtInterceptor;
+	private final JwtInterceptor jwtInterceptor;
+
+	public SsjdApplication(JwtInterceptor jwtInterceptor) { this.jwtInterceptor = jwtInterceptor; }
 
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 		registry.addInterceptor(jwtInterceptor).addPathPatterns("/api/**")
 				.excludePathPatterns("/api/users")
 				.excludePathPatterns("/api/users/login")
+				.excludePathPatterns("/api/users/salt/**")
 				.excludePathPatterns(Arrays.asList("/api/posts/**"))
 				.excludePathPatterns(Arrays.asList("/api/chats/**"));
 	}

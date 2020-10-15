@@ -36,9 +36,6 @@ class PostsServiceTest {
     @Autowired
     private ProblemsRepository problemsRepository;
 
-    /**
-     * 1. 게시글 생성 / postService.savePost()
-     */
     @Test
     @Transactional
     public void 게시글_등록() {
@@ -179,19 +176,15 @@ class PostsServiceTest {
                 .build();
 
         // when
-        postsService.savePost(dto);
+        Posts result = postsService.savePost(dto);
 
         // then
-        Posts posts = postsRepository.findAll().get(0);
+        Posts posts = postsRepository.findById(result.getPostId()).get();
         Assertions.assertThat(posts.getLanguage()).isEqualTo("JAVA");
-        Assertions.assertThat(posts.getUser().getUserId()).isEqualTo(1);
         Assertions.assertThat(problemsService.findByProblemId(posts.getProblem().getProblemId()).getProblemTitle()).isEqualTo("뱀");
 
     }
 
-    /**
-     * 2. 게시글 수정 / postService.updatePost()
-     */
     @Test
     @Transactional
     public void 게시글_수정() {
@@ -210,7 +203,7 @@ class PostsServiceTest {
         int updatingPostId = savePost.getPostId();
 
         // when
-        PostsUpdateRequestDto updateDto = new PostsUpdateRequestDto(savePost.getUser().getUserId(),
+        PostsUpdateRequestDto updateDto = new PostsUpdateRequestDto(1,
                 "SUCCESS LINK", "SUCCESS TYPE", "SUCCESS TITLE","SUCCESS!", "TITLE !", "CONTENT ! ", "CODE SUCCESS!");
         postsService.updatePost(updatingPostId, updateDto);
 
@@ -220,9 +213,6 @@ class PostsServiceTest {
         Assertions.assertThat(afterPost.getTitle()).isEqualTo("TITLE !");
     }
 
-    /**
-     * 3. 게시글 삭제 / postService.deletePost()
-     */
     @Test
     @Transactional
     public void 게시글_삭제() {
@@ -247,12 +237,9 @@ class PostsServiceTest {
         Assertions.assertThat(post).isNotNull();
         Assertions.assertThat(problem).isNotNull();
         postsService.deletePost(savePost.getPostId());
-        Assertions.assertThat(postsRepository.findByPostId(savePost.getPostId())).isEmpty();
+        Assertions.assertThat(postsRepository.findById(savePost.getPostId())).isEmpty();
     }
 
-    /**
-     * 4. 게시글 상세 조회 / postService.findByPostId()
-     */
     @Test
     @Transactional(readOnly = true)
     public void 게시글_상세조회() {
@@ -276,12 +263,8 @@ class PostsServiceTest {
         // then
         Assertions.assertThat(dto.getProblemTitle()).isEqualTo(findOnePosts.getProblem().getProblemTitle());
         Assertions.assertThat(dto.getCode()).isEqualTo(findOnePosts.getCode());
-        Assertions.assertThat(dto.getUserId()).isEqualTo(findOnePosts.getUser().getUserId());
     }
 
-    /**
-     * 5. 전체 게시글 조회
-     */
     @Test
     @Transactional(readOnly = true)
     public void 게시글_전체조회_페이징() {
@@ -310,12 +293,8 @@ class PostsServiceTest {
         Assertions.assertThat(totalPage).isGreaterThan(0);
         Assertions.assertThat(totalSize).isGreaterThan(0);
         Assertions.assertThat(recentPost.getTitle()).isEqualTo(savePost.getTitle());
-        Assertions.assertThat(recentPost.getUser().getUserId()).isEqualTo(3);
     }
 
-    /**
-     * 6. 언어별 풀이 조회
-     */
     @Test
     @Transactional(readOnly = true)
     public void 언어별_전체조회() {
@@ -355,9 +334,6 @@ class PostsServiceTest {
         Assertions.assertThat(firstRequestPost.getLanguage()).isEqualTo("TEST_JAVA");
     }
 
-    /**
-     * 7. 플랫폼별 풀이 조회
-     */
     @Transactional(readOnly = true)
     @Test
     public void 플랫폼별_조회() {
@@ -397,9 +373,6 @@ class PostsServiceTest {
         Assertions.assertThat(firstOneByPlatform.getTitle()).isEqualTo("플랫폼별 조회 테스트 2번 객체(백준)");
     }
 
-    /**
-     * 8. 언어 + 플랫폼별 조회
-     */
     @Transactional(readOnly = true)
     @Test
     public void 언어_플랫폼으로_조회() {
@@ -454,9 +427,6 @@ class PostsServiceTest {
         Assertions.assertThat(secondOneByPlatform.getTitle()).isEqualTo("언어+플랫폼 테스트 3번 객체");
     }
 
-    /**
-     * 9. 유저별 풀이 조회
-     */
     @Transactional(readOnly = true)
     @Test
     public void 유저별_게시글_조회() {
@@ -483,9 +453,6 @@ class PostsServiceTest {
         }
     }
 
-    /**
-     * 10. 게시글 통합 검색
-     */
     @Transactional
     @Test
     public void 게시글_통합검색() {
@@ -512,9 +479,6 @@ class PostsServiceTest {
         Assertions.assertThat(results.get(0).getTitle()).isEqualTo(requestDto.getTitle());
     }
 
-    /**
-     * 11. 플랫폼별 검색
-     */
     @Transactional
     @Test
     public void 게시글_플랫폼별_검색() {
